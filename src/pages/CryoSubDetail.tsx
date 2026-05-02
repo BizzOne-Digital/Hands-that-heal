@@ -5,6 +5,17 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { GradientBlobs } from "@/components/GradientBlobs";
 import cryo from "@/assets/service-cryo.jpg";
+import cryoAesthetic from "@/assets/cryo-aesthetic.jpg";
+import cryoOrtho from "@/assets/cryo-ortho.jpg";
+import cryoSports from "@/assets/cryo-sports.jpg";
+import cryoPostsurgery from "@/assets/cryo-postsurgery.jpg";
+
+const heroImages: Record<string, string> = {
+  "cryo-aesthetic": cryoAesthetic,
+  "cryo-ortho": cryoOrtho,
+  "cryo-sports": cryoSports,
+  "cryo-postsurgery": cryoPostsurgery,
+};
 
 type Step = { title: string; desc: string };
 type Phase = { phase: string; steps: Step[] };
@@ -300,7 +311,7 @@ const CryoSubDetail = () => {
       {/* Hero */}
       <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={cryo} alt="" className="w-full h-full object-cover" />
+          <img src={heroImages[service.slug] ?? cryo} alt="" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-deep-gradient opacity-85" />
         </div>
         <div className="container-luxe relative z-10 pt-16">
@@ -495,7 +506,7 @@ const CryoSubDetail = () => {
             {others.slice(0, 3).map((o) => (
               <Link key={o.slug} to={`/services/${o.slug}`} className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-elegant transition-all">
                 <div className="aspect-[4/3] overflow-hidden">
-                  <img src={cryo} alt={o.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={heroImages[o.slug] ?? cryo} alt={o.title} loading="lazy" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                 </div>
                 <div className="p-6">
                   <h3 className="font-display text-xl group-hover:text-primary transition-colors">{o.title}</h3>
