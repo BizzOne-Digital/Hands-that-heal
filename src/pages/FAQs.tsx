@@ -158,12 +158,12 @@ const FAQs = () => (
     <title>FAQs — Hands That Heal</title>
     <meta name="description" content="Frequently asked questions about laser hair removal, body contouring, teeth whitening, Brazilian laser, and cryotherapy at Hands That Heal." />
 
-    <section className="relative pt-40 pb-20 overflow-hidden">
+    <section className="relative pt-28 sm:pt-40 pb-12 sm:pb-20 overflow-hidden">
       <GradientBlobs />
       <div className="container-luxe relative max-w-4xl">
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Frequently Asked Questions</p>
-        <h1 className="font-display text-6xl md:text-8xl leading-[1.02]">FAQs</h1>
-        <p className="font-display text-2xl md:text-3xl italic text-muted-foreground mt-6 leading-snug">
+        <h1 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[1.02]">FAQs</h1>
+        <p className="font-display text-xl sm:text-2xl md:text-3xl italic text-muted-foreground mt-6 leading-snug">
           The most common questions we've had so far.
         </p>
       </div>

@@ -5,12 +5,12 @@ import { services } from "@/data/services";
 import { GradientBlobs } from "@/components/GradientBlobs";
 
 export const ServicesPreview = () => (
-  <section className="relative py-32 overflow-hidden">
+  <section className="relative py-16 sm:py-32 overflow-hidden">
     <GradientBlobs />
     <div className="container-luxe relative">
-      <div className="max-w-2xl mb-20">
+      <div className="max-w-2xl mb-10 sm:mb-20">
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Services</p>
-        <h2 className="font-display text-5xl md:text-6xl text-foreground leading-tight">
+        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight">
           Step Into Luxury at Our{" "}
           <span className="italic text-gradient">Premier Aesthetic Haven</span>
         </h2>

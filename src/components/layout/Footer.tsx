@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
 
 export const Footer = () => (
-  <footer className="relative mt-32 bg-foreground text-background/90 overflow-hidden">
+  <footer className="relative mt-16 sm:mt-32 bg-foreground text-background/90 overflow-hidden">
     <div className="blob bg-primary-soft top-0 left-1/4 h-72 w-72 opacity-20" />
-    <div className="container-luxe relative pt-20 pb-10">
-      <div className="grid md:grid-cols-4 gap-12">
+    <div className="container-luxe relative pt-16 pb-8 sm:pt-20 sm:pb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
         <div>
           <Link to="/" className="flex items-center">
             <img src="/image.png" alt="Hands That Heal" className="h-14 w-auto object-contain" />
@@ -52,7 +52,7 @@ export const Footer = () => (
         </div>
       </div>
 
-      <div className="mt-16 pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between gap-4 text-xs text-background/40">
+      <div className="mt-8 sm:mt-16 pt-6 sm:pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between gap-4 text-xs text-background/40">
         <p>© {new Date().getFullYear()} Hands That Heal. All Rights Reserved.</p>
         <div className="flex gap-6">
           <a href="#" className="hover:text-background/80">Privacy</a>

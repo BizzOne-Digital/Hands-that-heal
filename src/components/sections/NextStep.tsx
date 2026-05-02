@@ -11,12 +11,12 @@ export const NextStep = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="relative overflow-hidden rounded-[2rem] bg-deep-gradient p-12 md:p-20 shadow-elegant"
+        className="relative overflow-hidden rounded-[2rem] bg-deep-gradient p-8 sm:p-12 md:p-20 shadow-elegant"
       >
         <div className="blob bg-primary-glow h-[500px] w-[500px] -top-40 -right-20 opacity-30" />
         <div className="blob bg-accent h-[400px] w-[400px] -bottom-40 -left-20 opacity-20" />
         <div className="relative z-10 max-w-3xl">
-          <h2 className="font-display text-5xl md:text-7xl text-primary-foreground leading-[1.05]">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-7xl text-primary-foreground leading-[1.05]">
             Your next step starts here.
           </h2>
           <p className="mt-6 text-lg text-primary-foreground/80 max-w-xl">

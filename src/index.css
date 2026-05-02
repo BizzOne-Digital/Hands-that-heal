@@ -107,6 +107,6 @@
   }
 
   .container-luxe {
-    @apply container mx-auto px-6 md:px-10;
+    @apply container mx-auto px-4 sm:px-6 md:px-10;
   }
 }

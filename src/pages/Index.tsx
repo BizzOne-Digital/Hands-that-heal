@@ -16,34 +16,34 @@ const Index = () => {
       <meta name="description" content="Laser hair removal, body contouring, organic teeth whitening, Brazilian laser, and cryotherapy. Safe for all skin tones. Hamilton, ON." />
       <link rel="canonical" href="/" />
 
-      {/* 1. Hero — "Feel Comfortable and Confident in your own skin" */}
+      {/* 1. Hero */}
       <Hero />
 
-      {/* 2. About Us — "Skin Care That Understands You" */}
+      {/* 2. About Us */}
       <AboutSection />
 
-      {/* 3. Special Offer — $499 Laser Hair Removal */}
+      {/* 3. Special Offer */}
       <CTASection />
 
-      {/* 4. Services — "Step Into Luxury at Our Premier Aesthetic Haven" */}
+      {/* 4. Services */}
       <ServicesPreview />
 
-      {/* 5. Why Choose Us — "Care that feels right from the moment you walk in" */}
+      {/* 5. Why Choose Us */}
       <WhyChooseUs />
 
-      {/* 6. Testimonials — "What our clients say about their experience" */}
+      {/* 6. Testimonials */}
       <Testimonials />
 
-      {/* 7. Next Step CTA — "Your next step starts here" */}
+      {/* 7. Next Step CTA */}
       <NextStep />
 
-      {/* 8. Stats — 100% Satisfaction, 0 Side Effects, 20+ Solutions, 1000+ Clients */}
+      {/* 8. Stats */}
       <Stats />
 
-      {/* 8. FAQ Preview — "The most common questions we've had so far" */}
+      {/* 9. FAQ Preview */}
       <FAQPreview />
 
-      {/* 9. Booking CTA — "Start Your Transformation Today" */}
+      {/* 10. Booking CTA */}
       <BookingCTA />
     </>
   );

@@ -6,18 +6,23 @@ import { Button } from "@/components/ui/button";
 import { GradientBlobs } from "@/components/GradientBlobs";
 import cryo from "@/assets/service-cryo.jpg";
 
-// ── Sub-service tab data ──────────────────────────────────────────────────────
-// Place images in src/assets/ with these exact filenames:
-//   cryo-aesthetic.jpg
-//   cryo-ortho.jpg
-//   cryo-sports.jpg
-//   cryo-postsurgery.jpg
+// Sub-service images — place these files in src/assets/:
+//   cryo-aesthetic.jpg  → image 3 (woman lying, body/abdomen treatment)
+//   cryo-ortho.jpg      → image 1 (man on table, shoulder treatment)
+//   cryo-sports.jpg     → image 4 (athlete, leg/ankle in gym)
+//   cryo-postsurgery.jpg → image 2 (woman with bandaged knee)
+const cryoImages: Record<string, string> = {
+  aesthetic: new URL("../assets/cryo-aesthetic.jpg", import.meta.url).href,
+  ortho: new URL("../assets/cryo-ortho.jpg", import.meta.url).href,
+  sports: new URL("../assets/cryo-sports.jpg", import.meta.url).href,
+  postsurgery: new URL("../assets/cryo-postsurgery.jpg", import.meta.url).href,
+};
 
 const subServices = [
   {
     id: "aesthetic",
     label: "Aesthetic",
-    image: "/src/assets/cryo-aesthetic.jpg",
+    image: cryoImages.aesthetic,
     heading: "Aesthetic Cryotherapy",
     description:
       "Targeted cold therapy for visible aesthetic improvements including body sculpting, skin rejuvenation, and facial treatments.",
@@ -32,7 +37,7 @@ const subServices = [
   {
     id: "ortho",
     label: "Orthopaedic",
-    image: "/src/assets/cryo-ortho.jpg",
+    image: cryoImages.ortho,
     heading: "Orthopaedic Cryotherapy",
     description:
       "Targeted cold therapy to support joint health, reduce inflammation, and aid recovery from orthopaedic conditions.",
@@ -47,7 +52,7 @@ const subServices = [
   {
     id: "sports",
     label: "Sports",
-    image: "/src/assets/cryo-sports.jpg",
+    image: cryoImages.sports,
     heading: "Sports Cryotherapy",
     description:
       "Performance-focused cryotherapy designed to support athletic recovery, reduce muscle soreness, and enhance mobility.",
@@ -62,7 +67,7 @@ const subServices = [
   {
     id: "postsurgery",
     label: "Post Surgery",
-    image: "/src/assets/cryo-postsurgery.jpg",
+    image: cryoImages.postsurgery,
     heading: "Post-Surgery Cryotherapy",
     description:
       "Gentle, targeted cold therapy to support healing, reduce post-operative swelling, and manage pain after surgery.",
@@ -115,7 +120,7 @@ const CryotherapyDetail = () => {
       <meta name="description" content="Hamilton's only provider of SubZero Cryotherapy. Aesthetic, orthopaedic, sports, and post-surgery treatments." />
 
       {/* ── Hero ── */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0">
           <img src={cryo} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-deep-gradient opacity-85" />
@@ -126,7 +131,7 @@ const CryotherapyDetail = () => {
           </Link>
           <motion.h1
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
-            className="font-display text-5xl md:text-7xl text-white leading-[1.05] max-w-4xl"
+            className="font-display text-4xl sm:text-5xl md:text-7xl text-white leading-[1.05] max-w-4xl"
           >
             Localized Cryotherapy
           </motion.h1>
@@ -161,7 +166,7 @@ const CryotherapyDetail = () => {
       </section>
 
       {/* ── Main content ── */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-16 sm:py-24 overflow-hidden">
         <GradientBlobs />
         <div className="container-luxe relative grid lg:grid-cols-3 gap-16">
           <div className="lg:col-span-2 space-y-16">
@@ -209,11 +214,11 @@ const CryotherapyDetail = () => {
                   transition={{ duration: 0.35 }}
                   className="bg-card rounded-3xl overflow-hidden shadow-soft"
                 >
-                  <div className="aspect-[16/6] overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={active.image}
                       alt={active.heading}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-center"
                       onError={(e) => { (e.target as HTMLImageElement).src = cryo; }}
                     />
                   </div>
@@ -318,7 +323,7 @@ const CryotherapyDetail = () => {
       {/* ── CTA ── */}
       <section className="py-16">
         <div className="container-luxe">
-          <div className="relative overflow-hidden rounded-[2rem] bg-deep-gradient p-12 md:p-16 shadow-elegant">
+          <div className="relative overflow-hidden rounded-[2rem] bg-deep-gradient p-8 sm:p-12 md:p-16 shadow-elegant">
             <div className="blob bg-primary-glow h-[500px] w-[500px] -top-40 -right-20 opacity-30" />
             <div className="blob bg-accent h-[400px] w-[400px] -bottom-40 -left-20 opacity-20" />
             <div className="relative z-10 max-w-2xl">

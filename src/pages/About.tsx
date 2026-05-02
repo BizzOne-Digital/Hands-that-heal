@@ -119,15 +119,15 @@ const About = () => (
     <meta name="description" content="Dedicated to providing care that relaxes, heals, and enhances your overall well-being. Meet the team at Hands That Heal." />
 
     {/* Hero */}
-    <section className="relative pt-40 pb-20 overflow-hidden">
+    <section className="relative pt-28 sm:pt-40 pb-12 sm:pb-20 overflow-hidden">
       <GradientBlobs />
       <div className="container-luxe relative max-w-4xl">
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">About Hands That Heal</p>
-        <h1 className="font-display text-6xl md:text-8xl leading-[1.02]">
+        <h1 className="font-display text-4xl sm:text-6xl md:text-8xl leading-[1.02]">
           Meet Hands <br />
           <span className="italic text-gradient">That Heal.</span>
         </h1>
-        <p className="font-display text-2xl text-muted-foreground mt-6 italic">
+        <p className="font-display text-xl sm:text-2xl text-muted-foreground mt-6 italic">
           Where advanced aesthetic care meets trusted expertise to help you feel confident in your skin.
         </p>
       </div>
@@ -136,7 +136,7 @@ const About = () => (
     {/* Clinic built on expertise */}
     <section className="py-24">
       <div className="container-luxe">
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
           {/* Left */}
           <div>
             <h2 className="font-display text-4xl md:text-5xl text-foreground leading-[1.05]">
@@ -152,7 +152,6 @@ const About = () => (
               Every treatment begins with understanding your concerns and building a personalised plan that always stays focused on safe procedures, visible results, and long-term improvement, not generic solutions.
             </p>
           </div>
-
           {/* Right — 2×2 cards */}
           <div className="grid grid-cols-2 gap-4">
             {[
@@ -181,7 +180,7 @@ const About = () => (
 
     {/* Caring Hands Trusted Healing — image + text intro */}
     <section className="py-20">
-      <div className="container-luxe grid md:grid-cols-2 gap-12 items-center">
+      <div className="container-luxe grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
         {/* Image grid */}
         <div className="grid grid-cols-2 gap-3">
           <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-soft">

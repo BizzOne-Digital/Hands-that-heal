@@ -5,12 +5,12 @@ import { Button } from "@/components/ui/button";
 import { staff } from "@/data/staff";
 
 export const AboutSection = () => (
-  <section className="py-32 bg-soft-gradient">
+  <section className="py-16 sm:py-32 bg-soft-gradient">
     <div className="container-luxe">
-      <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24 items-center">
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">About Us</p>
-          <h2 className="font-display text-5xl md:text-6xl leading-[1.05]">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
             About Hands That Heal
           </h2>
           <p className="font-display text-2xl text-muted-foreground mt-6 italic">
@@ -26,7 +26,7 @@ export const AboutSection = () => (
             Our trained specialists use proven techniques that are safe and effective for all skin types, ensuring every client feels comfortable and confident in their journey.
           </p>
 
-          <div className="mt-10 grid grid-cols-3 gap-6">
+          <div className="mt-8 sm:mt-10 grid grid-cols-3 gap-3 sm:gap-6">
             {[
               { icon: ShieldCheck, label: "Expert Hands. Proven Methods" },
               { icon: Heart, label: "Safe, thoughtful approaches" },

@@ -14,7 +14,7 @@ export const Testimonials = () => {
       <div className="container-luxe">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Testimonial</p>
-          <h2 className="font-display text-5xl md:text-6xl">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl">
             What our clients say about their{" "}
             <span className="italic text-gradient">experience.</span>
           </h2>
@@ -24,7 +24,7 @@ export const Testimonials = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="relative glass rounded-3xl p-10 md:p-16 shadow-elegant">
+          <div className="relative glass rounded-3xl p-6 sm:p-10 md:p-16 shadow-elegant">
             <Quote className="absolute top-8 left-8 h-12 w-12 text-primary/15" />
             <AnimatePresence mode="wait">
               <motion.div

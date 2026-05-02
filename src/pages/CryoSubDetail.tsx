@@ -298,7 +298,7 @@ const CryoSubDetail = () => {
       <meta name="description" content={service.tagline} />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0">
           <img src={cryo} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-deep-gradient opacity-85" />
@@ -309,7 +309,7 @@ const CryoSubDetail = () => {
           </Link>
           <motion.h1
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
-            className="font-display text-5xl md:text-7xl text-white leading-[1.05] max-w-4xl"
+            className="font-display text-4xl sm:text-5xl md:text-7xl text-white leading-[1.05] max-w-4xl"
           >
             {service.title}
           </motion.h1>
@@ -326,7 +326,7 @@ const CryoSubDetail = () => {
       </section>
 
       {/* Main content */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-16 sm:py-24 overflow-hidden">
         <GradientBlobs />
         <div className="container-luxe relative grid lg:grid-cols-3 gap-16">
           <div className="lg:col-span-2 space-y-16">
@@ -462,7 +462,7 @@ const CryoSubDetail = () => {
       {/* CTA */}
       <section className="py-16">
         <div className="container-luxe">
-          <div className="relative overflow-hidden rounded-[2rem] bg-deep-gradient p-12 md:p-16 shadow-elegant">
+          <div className="relative overflow-hidden rounded-[2rem] bg-deep-gradient p-8 sm:p-12 md:p-16 shadow-elegant">
             <div className="blob bg-primary-glow h-[500px] w-[500px] -top-40 -right-20 opacity-30" />
             <div className="blob bg-accent h-[400px] w-[400px] -bottom-40 -left-20 opacity-20" />
             <div className="relative z-10 max-w-2xl">

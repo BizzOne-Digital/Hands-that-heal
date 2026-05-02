@@ -9,12 +9,12 @@ const Services = () => (
     <title>Services — Hands That Heal</title>
     <meta name="description" content="Laser hair removal, organic teeth whitening, body contouring, Brazilian laser, and localized cryotherapy. Safe for all skin tones in Hamilton, ON." />
 
-    <section className="relative pt-40 pb-20 overflow-hidden">
+    <section className="relative pt-28 sm:pt-40 pb-12 sm:pb-20 overflow-hidden">
       <GradientBlobs />
       <div className="container-luxe relative">
         <div className="max-w-3xl">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Our Services</p>
-          <h1 className="font-display text-6xl md:text-7xl leading-[1.05]">
+          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl leading-[1.05]">
             Step Into Luxury at Our{" "}
             <span className="italic text-gradient">Premier Aesthetic Haven</span>
           </h1>
@@ -42,9 +42,9 @@ const Services = () => (
               <div className={`aspect-[4/3] md:aspect-auto overflow-hidden ${i % 2 ? "md:order-2" : ""}`}>
                 <img src={s.image} alt={s.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
-              <div className="p-10 md:p-14 flex flex-col justify-center">
+              <div className="p-6 sm:p-10 md:p-14 flex flex-col justify-center">
                 <span className="text-xs uppercase tracking-[0.3em] text-primary">0{i + 1}</span>
-                <h3 className="font-display text-4xl md:text-5xl mt-4 group-hover:text-primary transition-colors">{s.title}</h3>
+                <h3 className="font-display text-3xl md:text-4xl lg:text-5xl mt-4 group-hover:text-primary transition-colors">{s.title}</h3>
                 <p className="mt-2 text-sm italic text-muted-foreground">{s.tagline}</p>
                 <p className="mt-4 text-muted-foreground leading-relaxed">{s.description}</p>
                 <div className="inline-flex items-center gap-2 mt-8 text-primary font-medium text-sm">

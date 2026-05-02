@@ -12,7 +12,7 @@ export const Hero = () => (
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
     </div>
 
-    <div className="container-luxe relative z-10 pt-32 pb-20">
+    <div className="container-luxe relative z-10 pt-24 pb-16 sm:pt-32 sm:pb-20">
       <div className="max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -28,7 +28,7 @@ export const Hero = () => (
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.15 }}
-          className="font-display text-5xl md:text-7xl lg:text-8xl text-white leading-[1.05] tracking-tight"
+          className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white leading-[1.05] tracking-tight"
         >
           Your Destination for Advanced Aesthetic Treatments
         </motion.h1>

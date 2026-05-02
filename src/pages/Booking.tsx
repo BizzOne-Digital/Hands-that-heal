@@ -72,7 +72,7 @@ const Booking = () => {
             </div>
           )}
 
-          <div className="bg-card rounded-3xl shadow-elegant p-8 md:p-12">
+          <div className="bg-card rounded-3xl shadow-elegant p-6 sm:p-8 md:p-12">
             <AnimatePresence mode="wait">
               {done ? (
                 <motion.div key="done" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-12">
@@ -123,7 +123,7 @@ const Booking = () => {
                         </div>
                         <div>
                           <Label className="mb-3 block">Available times</Label>
-                          <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
                             {times.map((t) => (
                               <button
                                 key={t}
