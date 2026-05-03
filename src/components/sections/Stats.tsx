@@ -8,7 +8,7 @@ const stats = [
 ];
 
 export const Stats = () => (
-  <section className="py-20 bg-deep-gradient">
+  <section className="py-12 sm:py-16 bg-deep-gradient">
     <div className="container-luxe">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
         {stats.map((s, i) => (

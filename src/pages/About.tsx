@@ -134,7 +134,7 @@ const About = () => (
     </section>
 
     {/* Clinic built on expertise */}
-    <section className="py-24">
+    <section className="py-12 sm:py-16">
       <div className="container-luxe">
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
           {/* Left */}
@@ -241,7 +241,7 @@ const About = () => (
     </section>
 
     {/* Team */}
-    <section className="py-32">
+    <section className="py-12 sm:py-20">
       <div className="container-luxe">
         <div className="text-center max-w-2xl mx-auto mb-6">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Our Team</p>
@@ -278,7 +278,7 @@ const About = () => (
     </section>
 
     {/* Why Choose Us */}
-    <section className="py-32 bg-soft-gradient">
+    <section className="py-12 sm:py-20 bg-soft-gradient">
       <div className="container-luxe">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Why Choose Us</p>
@@ -309,7 +309,7 @@ const About = () => (
     </section>
 
     {/* Testimonials */}
-    <section className="py-32">
+    <section className="py-12 sm:py-20">
       <div className="container-luxe">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Testimonial</p>

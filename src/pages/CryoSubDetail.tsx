@@ -337,7 +337,7 @@ const CryoSubDetail = () => {
       </section>
 
       {/* Main content */}
-      <section className="relative py-16 sm:py-24 overflow-hidden">
+      <section className="relative py-12 sm:py-16 overflow-hidden">
         <GradientBlobs />
         <div className="container-luxe relative grid lg:grid-cols-3 gap-16">
           <div className="lg:col-span-2 space-y-16">
@@ -499,7 +499,7 @@ const CryoSubDetail = () => {
       </section>
 
       {/* Continue exploring */}
-      <section className="py-24 bg-soft-gradient">
+      <section className="py-12 sm:py-16 bg-soft-gradient">
         <div className="container-luxe">
           <h2 className="font-display text-4xl mb-10">Continue exploring</h2>
           <div className="grid md:grid-cols-3 gap-6">

@@ -46,7 +46,7 @@ const FAQItem = ({ item }: { item: { q: string; a: string } }) => {
 };
 
 export const FAQPreview = () => (
-  <section className="py-32">
+  <section className="py-12 sm:py-20">
     <div className="container-luxe">
       <div className="grid lg:grid-cols-2 gap-16 items-start">
         <div>

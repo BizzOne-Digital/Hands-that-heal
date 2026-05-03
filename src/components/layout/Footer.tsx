@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
 
 export const Footer = () => (
-  <footer className="relative mt-16 sm:mt-32 bg-foreground text-background/90 overflow-hidden">
+  <footer className="relative mt-8 sm:mt-16 bg-foreground text-background/90 overflow-hidden">
     <div className="blob bg-primary-soft top-0 left-1/4 h-72 w-72 opacity-20" />
     <div className="container-luxe relative pt-16 pb-8 sm:pt-20 sm:pb-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
@@ -14,10 +14,22 @@ export const Footer = () => (
             Hands That Heal — caring, gentle aesthetic treatments for every skin tone.
           </p>
           <div className="flex gap-3 mt-6">
-            <a href="#" className="h-10 w-10 grid place-items-center rounded-full bg-background/10 hover:bg-primary-soft transition-colors">
+            <a
+              href="https://www.instagram.com/handsthatheal__?igsh=NnA0YWtxa2E3N2Jy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Hands That Heal on Instagram"
+              className="h-10 w-10 grid place-items-center rounded-full bg-background/10 hover:bg-primary-soft transition-colors"
+            >
               <Instagram className="h-4 w-4" />
             </a>
-            <a href="#" className="h-10 w-10 grid place-items-center rounded-full bg-background/10 hover:bg-primary-soft transition-colors">
+            <a
+              href="https://web.facebook.com/profile.php?id=61576901215663"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Hands That Heal on Facebook"
+              className="h-10 w-10 grid place-items-center rounded-full bg-background/10 hover:bg-primary-soft transition-colors"
+            >
               <Facebook className="h-4 w-4" />
             </a>
           </div>

@@ -10,9 +10,9 @@ export const Testimonials = () => {
   const t = testimonials[i];
 
   return (
-    <section className="py-32">
+    <section className="py-12 sm:py-20">
       <div className="container-luxe">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Testimonial</p>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl">
             What our clients say about their{" "}

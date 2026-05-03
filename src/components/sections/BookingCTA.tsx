@@ -10,9 +10,9 @@ const steps = [
 ];
 
 export const BookingCTA = () => (
-  <section className="py-16 sm:py-32 bg-soft-gradient">
+  <section className="py-12 sm:py-16 bg-soft-gradient">
     <div className="container-luxe">
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="text-center max-w-3xl mx-auto mb-10">
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Start Your Transformation Today</p>
         <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
           Pick your service, choose a time, and{" "}

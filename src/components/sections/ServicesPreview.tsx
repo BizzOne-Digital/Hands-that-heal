@@ -5,7 +5,7 @@ import { services } from "@/data/services";
 import { GradientBlobs } from "@/components/GradientBlobs";
 
 export const ServicesPreview = () => (
-  <section className="relative py-16 sm:py-32 overflow-hidden">
+  <section className="relative py-12 sm:py-20 overflow-hidden">
     <GradientBlobs />
     <div className="container-luxe relative">
       <div className="max-w-2xl mb-10 sm:mb-20">
