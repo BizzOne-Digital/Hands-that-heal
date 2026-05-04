@@ -5,6 +5,40 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { GradientBlobs } from "@/components/GradientBlobs";
 import cryo from "@/assets/service-cryo.jpg";
+import cryoSlimming from "@/assets/cryo-slimming.png";
+import frotox from "@/assets/frotox-facial-treatment.png";
+import skinConditions from "@/assets/skin-conditions.png";
+
+// ── GALLERY IMAGES ────────────────────────────────────────────────────────────
+// Place 3 images per sub-service in src/assets/ with these exact filenames:
+//
+//   Cryo Slimming:          cryo-slimming-1.jpg   cryo-slimming-2.jpg   cryo-slimming-3.jpg
+//   Frotox Facial:          frotox-1.jpg          frotox-2.jpg          frotox-3.jpg
+//   Skin Conditions:        skin-conditions-1.jpg skin-conditions-2.jpg skin-conditions-3.jpg
+//
+// Then uncomment the imports below and replace the placeholder strings in aestheticGalleryMap.
+// ─────────────────────────────────────────────────────────────────────────────
+import cryoSlimming1    from "@/assets/cryo-slimming-1.jpg";
+import cryoSlimming2    from "@/assets/cryo-slimming-2.jpg";
+import cryoSlimming3    from "@/assets/cryo-slimming-3.jpg";
+import frotox1          from "@/assets/frotox-1.jpg";
+import frotox2          from "@/assets/frotox-2.jpg";
+import frotox3          from "@/assets/frotox-3.jpg";
+import skinConditions1  from "@/assets/skin-conditions-1.jpg";
+import skinConditions2  from "@/assets/skin-conditions-2.jpg";
+import skinConditions3  from "@/assets/skin-conditions-3.jpg";
+
+const aestheticGalleryMap: Record<string, [string, string, string]> = {
+  "cryo-slimming":   [cryoSlimming1,   cryoSlimming2,   cryoSlimming3],
+  "frotox":          [frotox1,          frotox2,          frotox3],
+  "skin-conditions": [skinConditions1,  skinConditions2,  skinConditions3],
+};
+
+const heroImages: Record<string, string> = {
+  "cryo-slimming":    cryoSlimming,
+  "frotox":           frotox,
+  "skin-conditions":  skinConditions,
+};
 
 type Step = { title: string; desc: string };
 type Phase = { phase: string; steps: Step[] };
@@ -200,7 +234,7 @@ const AestheticSubDetail = () => {
       {/* Hero */}
       <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={cryo} alt="" className="w-full h-full object-cover" />
+          <img src={heroImages[service.slug] ?? cryo} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-deep-gradient opacity-85" />
         </div>
         <div className="container-luxe relative z-10 pt-16">
@@ -299,6 +333,53 @@ const AestheticSubDetail = () => {
               </div>
             </div>
 
+            {/* Gallery mosaic */}
+            {aestheticGalleryMap[service.slug] && (
+              <div>
+                <div className="grid grid-cols-3 grid-rows-2 gap-3">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="col-span-2 row-span-2 rounded-3xl overflow-hidden shadow-elegant"
+                  >
+                    <img
+                      src={aestheticGalleryMap[service.slug][0]}
+                      alt={`${service.title} treatment`}
+                      className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                    />
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="rounded-3xl overflow-hidden shadow-soft aspect-square"
+                  >
+                    <img
+                      src={aestheticGalleryMap[service.slug][1]}
+                      alt={`${service.title} treatment`}
+                      className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                    />
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="rounded-3xl overflow-hidden shadow-soft aspect-square"
+                  >
+                    <img
+                      src={aestheticGalleryMap[service.slug][2]}
+                      alt={`${service.title} treatment`}
+                      className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                    />
+                  </motion.div>
+                </div>
+              </div>
+            )}
+
             {/* Who it's for */}
             <div>
               <h2 className="font-display text-3xl mb-4">Who It's For</h2>
@@ -362,11 +443,30 @@ const AestheticSubDetail = () => {
                 <Link to="/contact">Ask a Question</Link>
               </Button>
             </div>
-            <div className="glass rounded-3xl p-6">
-              <p className="text-sm text-muted-foreground mb-3">Part of Aesthetic Cryotherapy</p>
-              <Link to="/services/cryo-aesthetic" className="text-primary font-medium text-sm hover:underline flex items-center gap-1">
-                <ArrowLeft className="h-3 w-3" /> Back to Aesthetic Cryotherapy
-              </Link>
+            {/* Aesthetic sub-services navigation card */}
+            <div className="bg-card rounded-3xl shadow-soft overflow-hidden">
+              <div className="bg-primary px-6 py-4">
+                <h4 className="font-display text-xl text-primary-foreground text-center">Aesthetic Cryotherapy</h4>
+              </div>
+              <div className="p-4 space-y-2">
+                {[
+                  { label: "Cryo Slimming",          slug: "cryo-slimming" },
+                  { label: "Frotox Facial Treatment", slug: "frotox" },
+                  { label: "Skin Conditions",         slug: "skin-conditions" },
+                ].map((item) => (
+                  <Link
+                    key={item.slug}
+                    to={`/services/${item.slug}`}
+                    className={`flex items-center justify-center w-full px-4 py-4 rounded-2xl font-medium text-sm text-center transition-all duration-200 ${
+                      item.slug === service.slug
+                        ? "bg-primary text-primary-foreground border-2 border-primary/30"
+                        : "bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </aside>
         </div>
@@ -408,7 +508,7 @@ const AestheticSubDetail = () => {
             {others.map((o) => (
               <Link key={o.slug} to={`/services/${o.slug}`} className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-elegant transition-all">
                 <div className="aspect-[4/3] overflow-hidden">
-                  <img src={cryo} alt={o.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={heroImages[o.slug] ?? cryo} alt={o.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
                 <div className="p-6">
                   <h3 className="font-display text-xl group-hover:text-primary transition-colors">{o.title}</h3>

@@ -1,11 +1,18 @@
 import { motion } from "framer-motion";
 import { Heart, ShieldCheck, Sparkles, Users, Clock, Star } from "lucide-react";
 import { Link } from "react-router-dom";
-import { staff } from "@/data/staff";
-import { GradientBlobs } from "@/components/GradientBlobs";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { staff } from "@/data/staff";
+import { services } from "@/data/services";
+import { GradientBlobs } from "@/components/GradientBlobs";
+import { ChevronLeft, ChevronRight, Quote, ArrowRight } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import laser from "@/assets/about-1.jpeg";
+import cryo from "@/assets/about-2.jpeg";
+import contour from "@/assets/about-3.jpeg";
+import about4 from "@/assets/about-4.jpeg";
+import about5 from "@/assets/about-5.jpeg";
 
 const missionCards = [
   {
@@ -113,6 +120,67 @@ const TestimonialsSlider = () => {
   );
 };
 
+const ServicesTabsSection = () => {
+  const [active, setActive] = useState(services[0].slug);
+  const current = services.find((s) => s.slug === active)!;
+  return (
+    <section className="py-12 sm:py-16">
+      <div className="container-luxe">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">What We Offer</p>
+          <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
+            Our <span className="italic text-gradient">Treatments</span>
+          </h2>
+        </div>
+        {/* Tab buttons */}
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
+          {services.map((s) => (
+            <button
+              key={s.slug}
+              onClick={() => setActive(s.slug)}
+              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                active === s.slug
+                  ? "bg-primary text-primary-foreground shadow-md"
+                  : "bg-secondary text-foreground hover:bg-primary/10"
+              }`}
+            >
+              {s.title.split("(")[0].trim()}
+            </button>
+          ))}
+        </div>
+        {/* Tab content */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.35 }}
+            className="grid md:grid-cols-2 gap-8 items-center bg-card rounded-3xl overflow-hidden shadow-soft"
+          >
+            <div className="aspect-[4/3] overflow-hidden">
+              <img
+                src={current.image}
+                alt={current.title}
+                className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            <div className="p-8 md:p-10">
+              <h3 className="font-display text-3xl mb-3">{current.title}</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">{current.description}</p>
+              <Button asChild variant="hero" size="lg">
+                <Link to={`/services/${current.slug}`}>
+                  Learn More <ArrowRight className="ml-1 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+};
+
 const About = () => (
   <>
     <title>About Us — Hands That Heal</title>
@@ -133,61 +201,87 @@ const About = () => (
       </div>
     </section>
 
-    {/* Clinic built on expertise */}
-    <section className="py-12 sm:py-16">
+    {/* Image mosaic — premium visual intro */}
+    <section className="pb-10">
       <div className="container-luxe">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
-          {/* Left */}
-          <div>
-            <h2 className="font-display text-4xl md:text-5xl text-foreground leading-[1.05]">
-              A clinic built on expertise and precision.
-            </h2>
-            <p className="mt-6 text-muted-foreground leading-relaxed">
-              The Hands That Heal brings over 12+ years of professional experience in aesthetic and wellness care, delivering results-driven treatments with a clinical, detail-focused approach.
-            </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              We are among the first to introduce advanced Cryotherapy treatments for the first time in HAMILTON, offering innovation in both beauty and orthopaedic care, alongside services such as laser hair removal with Primelase, organic teeth whitening, Brazilian waxing, and skin rejuvenation.
-            </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Every treatment begins with understanding your concerns and building a personalised plan that always stays focused on safe procedures, visible results, and long-term improvement, not generic solutions.
-            </p>
-          </div>
-          {/* Right — 2×2 cards */}
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { icon: ShieldCheck, title: "Medical-Grade", desc: "Clinically trusted systems used in advanced dermatology for safe, precise results." },
-              { icon: Heart,       title: "Inclusive",     desc: "A premium care for every skin tone, every body, every identity without limitation." },
-              { icon: Users,       title: "Private",       desc: "Dedicated treatment spaces that ensure full comfort, discretion, and personal care." },
-              { icon: Sparkles,    title: "Visibility",    desc: "Measurable, visible results designed to go beyond surface-level change." },
-            ].map((f, i) => (
-              <motion.div
-                key={f.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
-                className="bg-card rounded-2xl p-6 shadow-soft"
-              >
-                <f.icon className="h-6 w-6 text-primary mb-4" />
-                <h3 className="font-display text-lg mb-2">{f.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid grid-cols-3 grid-rows-2 gap-3">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }} transition={{ duration: 0.7 }}
+            className="col-span-2 row-span-2 rounded-3xl overflow-hidden shadow-elegant"
+          >
+            <img src={laser} alt="Laser treatment" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
+            className="rounded-3xl overflow-hidden shadow-soft aspect-square"
+          >
+            <img src={cryo} alt="Cryotherapy" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}
+            className="rounded-3xl overflow-hidden shadow-soft aspect-square"
+          >
+            <img src={contour} alt="Body contouring" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
+          </motion.div>
         </div>
       </div>
     </section>
 
+    {/* Clinic built on expertise */}
+    <section className="py-12 sm:py-16 bg-soft-gradient">
+      <div className="container-luxe">
+        {/* Heading + text — full width on top */}
+        <div className="max-w-3xl mb-10">
+          <h2 className="font-display text-4xl md:text-5xl text-foreground leading-[1.05]">
+            A clinic built on expertise and precision.
+          </h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed">
+            The Hands That Heal brings over 12+ years of professional experience in aesthetic and wellness care, delivering results-driven treatments with a clinical, detail-focused approach.
+          </p>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            We are among the first to introduce advanced Cryotherapy treatments for the first time in HAMILTON, offering innovation in both beauty and orthopaedic care, alongside services such as laser hair removal with Primelase, organic teeth whitening, Brazilian waxing, and skin rejuvenation.
+          </p>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Every treatment begins with understanding your concerns and building a personalised plan that always stays focused on safe procedures, visible results, and long-term improvement, not generic solutions.
+          </p>
+        </div>
+        {/* 4 feature cards — full width below */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { icon: ShieldCheck, title: "Medical-Grade", desc: "Clinically trusted systems used in advanced dermatology for safe, precise results." },
+            { icon: Heart,       title: "Inclusive",     desc: "A premium care for every skin tone, every body, every identity without limitation." },
+            { icon: Users,       title: "Private",       desc: "Dedicated treatment spaces that ensure full comfort, discretion, and personal care." },
+            { icon: Sparkles,    title: "Visibility",    desc: "Measurable, visible results designed to go beyond surface-level change." },
+          ].map((f, i) => (
+            <motion.div
+              key={f.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              className="bg-card rounded-2xl p-6 shadow-soft"
+            >
+              <f.icon className="h-6 w-6 text-primary mb-4" />
+              <h3 className="font-display text-lg mb-2">{f.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
     {/* Caring Hands Trusted Healing — image + text intro */}
     <section className="py-20">
       <div className="container-luxe grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
         {/* Image grid */}
         <div className="grid grid-cols-2 gap-3">
           <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-soft">
-            <img src={staff[0].image} alt="Treatment" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            <img src={about4} alt="Treatment" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           </div>
           <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-soft mt-8">
-            <img src={staff[1].image} alt="Treatment" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            <img src={about5} alt="Treatment" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           </div>
         </div>
 
@@ -277,9 +371,11 @@ const About = () => (
       </div>
     </section>
 
+    {/* Services Tabs */}
+    <ServicesTabsSection />
+
     {/* Why Choose Us */}
-    <section className="py-12 sm:py-20 bg-soft-gradient">
-      <div className="container-luxe">
+    <section className="py-12 sm:py-20 bg-soft-gradient">      <div className="container-luxe">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Why Choose Us</p>
           <h2 className="font-display text-5xl md:text-6xl leading-[1.05]">

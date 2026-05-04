@@ -9,6 +9,9 @@ import { services } from "@/data/services";
 import { GradientBlobs } from "@/components/GradientBlobs";
 import { cn } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
+import laser from "@/assets/service-laser.jpg";
+import teeth from "@/assets/service-teeth.jpg";
+import cryo from "@/assets/service-cryo.jpg";
 
 const steps = ["Service", "Date & Time", "Your Details", "Confirm"] as const;
 
@@ -40,19 +43,30 @@ const Booking = () => {
 
   return (
     <>
-      <title>Book an Appointment — Lumière</title>
-      <meta name="description" content="Reserve your private consultation at Lumière in just a few steps." />
+      <title>Book an Appointment — Hands That Heal</title>
+      <meta name="description" content="Reserve your private consultation at Hands That Heal in just a few steps." />
 
-      <section className="relative pt-32 pb-20 overflow-hidden bg-soft-gradient min-h-screen">
-        <GradientBlobs />
-        <div className="container-luxe relative max-w-4xl">
-          <div className="text-center mb-12">
-            <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Your Visit</p>
-            <h1 className="font-display text-5xl md:text-6xl leading-tight">
-              Reserve your <span className="italic text-gradient">private moment.</span>
+      {/* Image banner */}
+      <div className="relative h-[220px] sm:h-[300px] overflow-hidden">
+        <div className="absolute inset-0 grid grid-cols-3">
+          <img src={laser} alt="" className="w-full h-full object-cover object-center" />
+          <img src={teeth} alt="" className="w-full h-full object-cover object-center" />
+          <img src={cryo} alt="" className="w-full h-full object-cover object-center" />
+        </div>
+        <div className="absolute inset-0 bg-deep-gradient opacity-75" />
+        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-primary-glow mb-3">Your Visit</p>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-tight">
+              Reserve your <span className="italic text-primary-glow">private moment.</span>
             </h1>
           </div>
+        </div>
+      </div>
 
+      <section className="relative py-12 overflow-hidden bg-soft-gradient min-h-screen">
+        <GradientBlobs />
+        <div className="container-luxe relative max-w-4xl">
           {!done && (
             <div className="flex justify-between mb-12 max-w-2xl mx-auto">
               {steps.map((s, i) => (

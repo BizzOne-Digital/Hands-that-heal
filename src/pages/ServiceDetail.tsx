@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { getService, services } from "@/data/services";
 import { GradientBlobs } from "@/components/GradientBlobs";
+import { ServiceBeforeAfter } from "@/components/sections/ServiceBeforeAfter";
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -118,6 +119,41 @@ const ServiceDetail = () => {
               </ul>
             </div>
 
+            {/* Gallery mosaic */}
+            {service.gallery && (
+              <div>
+                <div className="grid grid-cols-3 grid-rows-2 gap-3">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="col-span-2 row-span-2 rounded-3xl overflow-hidden shadow-elegant"
+                  >
+                    <img src={service.gallery[0]} alt={service.title} className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="rounded-3xl overflow-hidden shadow-soft aspect-square"
+                  >
+                    <img src={service.gallery[1]} alt={service.title} className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="rounded-3xl overflow-hidden shadow-soft aspect-square"
+                  >
+                    <img src={service.gallery[2]} alt={service.title} className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
+                  </motion.div>
+                </div>
+              </div>
+            )}
+
             {/* Experience */}
             <div>
               <h2 className="font-display text-3xl mb-6">
@@ -156,6 +192,9 @@ const ServiceDetail = () => {
               )}
             </div>
 
+            {/* See the Results — before/after slider */}
+            <ServiceBeforeAfter slug={service.slug} />
+
             {/* FAQs */}
             <div>
               <h2 className="font-display text-3xl mb-8">Frequently Asked</h2>
@@ -168,6 +207,25 @@ const ServiceDetail = () => {
                 ))}
               </Accordion>
             </div>
+
+            {/* Image gallery strip */}
+            {!['organic-teeth-whitening', 'body-contouring', 'laser-hair-removal', 'brazilian-laser'].includes(service.slug) && (
+            <div>
+              <h2 className="font-display text-3xl mb-6">See the Results</h2>
+              <div className="grid grid-cols-3 gap-3 h-[220px] sm:h-[280px]">
+                <div className="col-span-2 rounded-2xl overflow-hidden shadow-soft">
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
+                </div>
+                <div className="flex flex-col gap-3">
+                  {services.filter(s => s.slug !== service.slug).slice(0, 2).map((s) => (
+                    <div key={s.slug} className="flex-1 rounded-2xl overflow-hidden shadow-soft">
+                      <img src={s.image} alt={s.title} loading="lazy" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            )}
           </div>
 
           {/* Sidebar */}
@@ -182,6 +240,32 @@ const ServiceDetail = () => {
               <Button asChild variant="glass" size="lg" className="mt-3 w-full">
                 <Link to="/contact">Ask a Question</Link>
               </Button>
+            </div>
+
+            {/* Services navigation card */}
+            <div className="bg-card rounded-3xl shadow-soft overflow-hidden">
+              <div className="bg-primary px-6 py-4">
+                <h4 className="font-display text-xl text-primary-foreground text-center">Services</h4>
+              </div>
+              <div className="p-4 space-y-2">
+                {/* Current service first, highlighted */}
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="flex items-center justify-center w-full px-4 py-4 rounded-2xl bg-primary text-primary-foreground font-medium text-sm text-center border-2 border-primary/30 transition-all"
+                >
+                  {service.title.split("(")[0].trim()}
+                </Link>
+                {/* Other services */}
+                {services.filter(s => s.slug !== service.slug).map(s => (
+                  <Link
+                    key={s.slug}
+                    to={`/services/${s.slug}`}
+                    className="flex items-center justify-center w-full px-4 py-4 rounded-2xl bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground font-medium text-sm text-center transition-all duration-200"
+                  >
+                    {s.title.split("(")[0].trim()}
+                  </Link>
+                ))}
+              </div>
             </div>
           </aside>
         </div>

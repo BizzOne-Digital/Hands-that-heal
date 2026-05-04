@@ -9,7 +9,8 @@ const Services = () => (
     <title>Services — Hands That Heal</title>
     <meta name="description" content="Laser hair removal, organic teeth whitening, body contouring, Brazilian laser, and localized cryotherapy. Safe for all skin tones in Hamilton, ON." />
 
-    <section className="relative pt-28 sm:pt-40 pb-12 sm:pb-20 overflow-hidden">
+    {/* Hero */}
+    <section className="relative pt-28 sm:pt-40 pb-8 sm:pb-12 overflow-hidden">
       <GradientBlobs />
       <div className="container-luxe relative">
         <div className="max-w-3xl">
@@ -25,7 +26,27 @@ const Services = () => (
       </div>
     </section>
 
-    <section className="pb-32">
+    {/* Stats strip */}
+    <section className="py-6 bg-deep-gradient mb-8">
+      <div className="container-luxe">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {[
+            { value: "14+", label: "Years Experience" },
+            { value: "5", label: "Premium Services" },
+            { value: "1000+", label: "Happy Clients" },
+            { value: "0", label: "Side Effects" },
+          ].map((s) => (
+            <div key={s.label}>
+              <p className="font-display text-4xl md:text-5xl text-primary-glow">{s.value}</p>
+              <p className="mt-1 text-xs text-primary-foreground/70 uppercase tracking-widest">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Service list */}
+    <section className="pb-16">
       <div className="container-luxe space-y-8">
         {services.map((s, i) => (
           <motion.div
@@ -45,7 +66,7 @@ const Services = () => (
               <div className="p-6 sm:p-10 md:p-14 flex flex-col justify-center">
                 <span className="text-xs uppercase tracking-[0.3em] text-primary">0{i + 1}</span>
                 <h3 className="font-display text-3xl md:text-4xl lg:text-5xl mt-4 group-hover:text-primary transition-colors">{s.title}</h3>
-                <p className="mt-2 text-sm italic text-muted-foreground">{s.tagline}</p>
+                <p className="mt-2 text-sm italic text-muted-foreground">{s.tagline.split("\n")[0]}</p>
                 <p className="mt-4 text-muted-foreground leading-relaxed">{s.description}</p>
                 <div className="inline-flex items-center gap-2 mt-8 text-primary font-medium text-sm">
                   Read more <ArrowUpRight className="h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

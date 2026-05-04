@@ -1,3 +1,4 @@
+import { useState, useRef, useCallback } from "react";
 import { Link, useLocation, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, Sparkles } from "lucide-react";
@@ -9,6 +10,116 @@ import cryoAesthetic from "@/assets/cryo-aesthetic.jpg";
 import cryoOrtho from "@/assets/cryo-ortho.jpg";
 import cryoSports from "@/assets/cryo-sports.jpg";
 import cryoPostsurgery from "@/assets/cryo-postsurgery.jpg";
+
+// ── GALLERY IMAGES ────────────────────────────────────────────────────────────
+// Place 3 images per sub-service in src/assets/ with these exact filenames:
+//
+//   Aesthetic:    cryo-aesthetic-1.jpg  cryo-aesthetic-2.jpg  cryo-aesthetic-3.jpg
+//   Orthopaedic:  cryo-ortho-1.jpg      cryo-ortho-2.jpg      cryo-ortho-3.jpg
+//   Sports:       cryo-sports-1.jpg     cryo-sports-2.jpg     cryo-sports-3.jpg
+//   Post-Surgery: cryo-postsurgery-1.jpg cryo-postsurgery-2.jpg cryo-postsurgery-3.jpg
+//
+// Then uncomment the imports below and remove the placeholder strings in galleryMap.
+// ─────────────────────────────────────────────────────────────────────────────
+import cryoAesthetic1 from "@/assets/cryo-aesthetic-1.jpg";
+import cryoAesthetic2 from "@/assets/cryo-aesthetic-2.jpg";
+import cryoAesthetic3 from "@/assets/cryo-aesthetic-3.jpg";
+import cryoOrtho1     from "@/assets/cryo-ortho-1.jpg";
+import cryoOrtho2     from "@/assets/cryo-ortho-2.jpg";
+import cryoOrtho3     from "@/assets/cryo-ortho-3.jpg";
+import cryoSports1    from "@/assets/cryo-sports-1.jpg";
+import cryoSports2    from "@/assets/cryo-sports-2.jpg";
+import cryoSports3    from "@/assets/cryo-sports-3.jpg";
+import cryoPost1      from "@/assets/cryo-postsurgery-1.jpg";
+import cryoPost2      from "@/assets/cryo-postsurgery-2.jpg";
+import cryoPost3      from "@/assets/cryo-postsurgery-3.jpg";
+
+const galleryMap: Record<string, [string, string, string]> = {
+  "cryo-aesthetic":   [cryoAesthetic1, cryoAesthetic2, cryoAesthetic3],
+  "cryo-ortho":       [cryoOrtho1,     cryoOrtho2,     cryoOrtho3],
+  "cryo-sports":      [cryoSports1,    cryoSports2,    cryoSports3],
+  "cryo-postsurgery": [cryoPost1,      cryoPost2,      cryoPost3],
+};
+
+// ── BEFORE / AFTER IMAGES ─────────────────────────────────────────────────────
+// Place before/after images in src/assets/results/ with these exact filenames:
+//
+//   cryo-aesthetic-before.jpg   cryo-aesthetic-after.jpg
+//   cryo-ortho-before.jpg       cryo-ortho-after.jpg
+//   cryo-sports-before.jpg      cryo-sports-after.jpg
+//   cryo-postsurgery-before.jpg cryo-postsurgery-after.jpg
+//
+// Then uncomment the imports below and replace the placeholder strings in resultMap.
+// ─────────────────────────────────────────────────────────────────────────────
+// import cryoAestheticBefore  from "@/assets/results/cryo-aesthetic-before.jpg";
+// import cryoAestheticAfter   from "@/assets/results/cryo-aesthetic-after.jpg";
+// import cryoOrthoBefore      from "@/assets/results/cryo-ortho-before.jpg";
+// import cryoOrthoAfter       from "@/assets/results/cryo-ortho-after.jpg";
+// import cryoSportsBefore     from "@/assets/results/cryo-sports-before.jpg";
+// import cryoSportsAfter      from "@/assets/results/cryo-sports-after.jpg";
+// import cryoPostBefore       from "@/assets/results/cryo-postsurgery-before.jpg";
+// import cryoPostAfter        from "@/assets/results/cryo-postsurgery-after.jpg";
+
+const PH_B = (l: string) => `https://placehold.co/800x600/d4e8e0/4a9e8a?text=Before+%E2%80%94+${encodeURIComponent(l)}`;
+const PH_A = (l: string) => `https://placehold.co/800x600/4a9e8a/ffffff?text=After+%E2%80%94+${encodeURIComponent(l)}`;
+
+const resultMap: Record<string, { before: string; after: string; desc: string }> = {
+  "cryo-aesthetic":   { before: PH_B("Aesthetic"),   after: PH_A("Sculpted"),  desc: "Visible body sculpting and skin rejuvenation after Aesthetic Cryotherapy sessions." },
+  "cryo-ortho":       { before: PH_B("Joint Pain"),  after: PH_A("Relief"),    desc: "Reduced joint inflammation and improved mobility after Orthopaedic Cryotherapy." },
+  "cryo-sports":      { before: PH_B("Soreness"),    after: PH_A("Recovered"), desc: "Faster muscle recovery and reduced soreness after Sports Cryotherapy sessions." },
+  "cryo-postsurgery": { before: PH_B("Post-Op"),     after: PH_A("Healed"),    desc: "Reduced post-surgical swelling and improved comfort after cryotherapy sessions." },
+};
+
+// ── Before/After Slider ───────────────────────────────────────────────────────
+const BeforeAfterSlider = ({ before, after }: { before: string; after: string }) => {
+  const [pos, setPos] = useState(50);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const dragging = useRef(false);
+
+  const updatePos = useCallback((clientX: number) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    setPos(Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100)));
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-elegant select-none cursor-col-resize"
+      onMouseDown={() => { dragging.current = true; }}
+      onMouseMove={(e) => { if (dragging.current) updatePos(e.clientX); }}
+      onMouseUp={() => { dragging.current = false; }}
+      onMouseLeave={() => { dragging.current = false; }}
+      onTouchMove={(e) => updatePos(e.touches[0].clientX)}
+      onTouchStart={() => { dragging.current = true; }}
+      onTouchEnd={() => { dragging.current = false; }}
+    >
+      {/* After — full width behind */}
+      <img src={after} alt="After" className="absolute inset-0 w-full h-full object-cover object-center" draggable={false} />
+      {/* Before — clipped left */}
+      <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
+        <img
+          src={before}
+          alt="Before"
+          className="absolute inset-0 h-full object-cover object-left"
+          style={{ width: `${(100 / pos) * 100}%`, maxWidth: "none" }}
+          draggable={false}
+        />
+      </div>
+      {/* Divider + handle */}
+      <div className="absolute top-0 bottom-0 w-0.5 bg-white z-10 pointer-events-none" style={{ left: `${pos}%` }}>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-11 w-11 rounded-full bg-white shadow-elegant flex items-center justify-center pointer-events-auto cursor-col-resize">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M8 5L4 11L8 17" stroke="#4a9e8a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M14 5L18 11L14 17" stroke="#4a9e8a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <span className="absolute bottom-4 left-4 z-10 bg-foreground/60 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">Before</span>
+      <span className="absolute bottom-4 right-4 z-10 bg-primary/80 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">After</span>
+    </div>
+  );
+};
 
 const heroImages: Record<string, string> = {
   "cryo-aesthetic": cryoAesthetic,
@@ -413,6 +524,53 @@ const CryoSubDetail = () => {
               </ul>
             </div>
 
+            {/* Gallery mosaic */}
+            {galleryMap[service.slug] && (
+              <div>
+                <div className="grid grid-cols-3 grid-rows-2 gap-3">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="col-span-2 row-span-2 rounded-3xl overflow-hidden shadow-elegant"
+                  >
+                    <img
+                      src={galleryMap[service.slug][0]}
+                      alt={`${service.title} treatment`}
+                      className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                    />
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="rounded-3xl overflow-hidden shadow-soft aspect-square"
+                  >
+                    <img
+                      src={galleryMap[service.slug][1]}
+                      alt={`${service.title} treatment`}
+                      className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                    />
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="rounded-3xl overflow-hidden shadow-soft aspect-square"
+                  >
+                    <img
+                      src={galleryMap[service.slug][2]}
+                      alt={`${service.title} treatment`}
+                      className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                    />
+                  </motion.div>
+                </div>
+              </div>
+            )}
+
             {/* Experience */}
             <div>
               <h2 className="font-display text-3xl mb-6">Treatment Experience</h2>
@@ -432,6 +590,32 @@ const CryoSubDetail = () => {
                 ))}
               </div>
             </div>
+
+            {/* Before / After */}
+            {resultMap[service.slug] && (
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="font-display text-3xl mb-6">See the Results</h2>
+                <BeforeAfterSlider
+                  before={resultMap[service.slug].before}
+                  after={resultMap[service.slug].after}
+                />
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed text-center">
+                  {resultMap[service.slug].desc}
+                </p>
+                <p className="text-center text-xs text-muted-foreground mt-2 flex items-center justify-center gap-2">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-primary">
+                    <path d="M5 3L2 7L5 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M9 3L12 7L9 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  Drag the handle to compare before &amp; after
+                </p>
+              </motion.div>
+            )}
 
             {/* FAQs */}
             <div>
@@ -460,11 +644,31 @@ const CryoSubDetail = () => {
                 <Link to="/contact">Ask a Question</Link>
               </Button>
             </div>
-            <div className="glass rounded-3xl p-6">
-              <p className="text-sm text-muted-foreground mb-3">Part of our Cryotherapy services</p>
-              <Link to="/services/localized-cryotherapy" className="text-primary font-medium text-sm hover:underline flex items-center gap-1">
-                <ArrowLeft className="h-3 w-3" /> View all Cryotherapy treatments
-              </Link>
+            {/* Services navigation card */}
+            <div className="bg-card rounded-3xl shadow-soft overflow-hidden">
+              <div className="bg-primary px-6 py-4">
+                <h4 className="font-display text-xl text-primary-foreground text-center">Services</h4>
+              </div>
+              <div className="p-4 space-y-2">
+                {[
+                  { label: "Aesthetic",    slug: "cryo-aesthetic" },
+                  { label: "Orthopaedic", slug: "cryo-ortho" },
+                  { label: "Sports",       slug: "cryo-sports" },
+                  { label: "Post Surgery", slug: "cryo-postsurgery" },
+                ].map((item) => (
+                  <Link
+                    key={item.slug}
+                    to={`/services/${item.slug}`}
+                    className={`flex items-center justify-center w-full px-4 py-4 rounded-2xl font-medium text-sm text-center transition-all duration-200 ${
+                      item.slug === service.slug
+                        ? "bg-primary text-primary-foreground border-2 border-primary/30"
+                        : "bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </aside>
         </div>

@@ -1,8 +1,24 @@
-import laser from "@/assets/service-laser.jpg";
-import teeth from "@/assets/service-teeth.jpg";
-import contour from "@/assets/service-contouring.jpg";
-import brazilian from "@/assets/service-brazilian.jpg";
-import cryo from "@/assets/service-cryo.jpg";
+import laser from "@/assets/lazer-removal.jpg";
+import teeth from "@/assets/organic-teeth-whitening.jpg";
+import contour from "@/assets/body-contouring.jpg";
+import brazilian from "@/assets/waxing.jpg";
+import cryo from "@/assets/cryotherapy.jpg";
+
+import laser1 from "@/assets/laser-1.jpg";
+import laser2 from "@/assets/laser-2.jpg";
+import laser3 from "@/assets/laser-3.jpg";
+import teeth1 from "@/assets/teeth-1.jpg";
+import teeth2 from "@/assets/teeth-2.jpg";
+import teeth3 from "@/assets/teeth-3.jpg";
+import contour1 from "@/assets/contour-1.jpg";
+import contour2 from "@/assets/contour-2.jpg";
+import contour3 from "@/assets/contour-3.jpg";
+import wax1 from "@/assets/wax-1.jpg";
+import wax2 from "@/assets/wax-2.jpg";
+import wax3 from "@/assets/wax-3.jpg";
+import cryo1 from "@/assets/cryo-1.jpg";
+import cryo2 from "@/assets/cryo-2.jpg";
+import cryo3 from "@/assets/cryo-3.jpg";
 
 export type Service = {
   slug: string;
@@ -18,6 +34,7 @@ export type Service = {
   experience: string;
   faqs: { q: string; a: string }[];
   cta?: { heading: string; body: string; primaryLabel: string; secondaryLabel: string };
+  gallery?: [string, string, string];
 };
 
 export const services: Service[] = [
@@ -59,6 +76,7 @@ export const services: Service[] = [
       primaryLabel: "Book Your Laser Session",
       secondaryLabel: "Get a Free Consultation",
     },
+    gallery: [laser1, laser2, laser3],
   },
   {
     slug: "organic-teeth-whitening",
@@ -97,6 +115,7 @@ export const services: Service[] = [
       primaryLabel: "Book Your Whitening Session",
       secondaryLabel: "Get a Free Consultation",
     },
+    gallery: [teeth2, teeth1, teeth3],
   },
   {
     slug: "body-contouring",
@@ -136,6 +155,7 @@ export const services: Service[] = [
       primaryLabel: "Book Your Contouring Session",
       secondaryLabel: "Get a Free Consultation",
     },
+    gallery: [contour1, contour2, contour3],
   },
   {
     slug: "brazilian-laser",
@@ -170,6 +190,7 @@ export const services: Service[] = [
       { q: "How often should I schedule sessions?", a: "Typically every 4–6 weeks until desired results are achieved. After that, touch-ups are usually needed every few months." },
       { q: "Will it cause irritation?", a: "Minimal redness may occur, which usually disappears within a few hours. We also provide tips to care for your skin post-treatment." },
     ],
+    gallery: [wax1, wax2, wax3],
   },
   {
     slug: "localized-cryotherapy",
@@ -204,6 +225,7 @@ export const services: Service[] = [
       { q: "How many sessions will I need?", a: "Results vary depending on your body type and target areas, but most clients see noticeable improvement after 4–6 sessions. Your plan can be tailored to achieve gradual, natural-looking results." },
       { q: "Is it safe for all areas of the body?", a: "Yes! Localized cryotherapy with Sub Zero is safe for areas like the abdomen, thighs, arms, and love handles, and it is non-invasive with no downtime." },
     ],
+    gallery: [cryo1, cryo2, cryo3],
   },
 ];
 

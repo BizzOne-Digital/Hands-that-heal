@@ -4,7 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ShieldCheck, Zap, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GradientBlobs } from "@/components/GradientBlobs";
-import cryo from "@/assets/service-cryo.jpg";
+import { services } from "@/data/services";
+import cryo from "@/assets/cryotherapy.jpg";
+import cryo1 from "@/assets/cryo-1.jpg";
+import cryo2 from "@/assets/cryo-2.jpg";
+import cryo3 from "@/assets/cryo-3.jpg";
 
 // Sub-service images — place these files in src/assets/:
 //   cryo-aesthetic.jpg  → image 3 (woman lying, body/abdomen treatment)
@@ -262,10 +266,36 @@ const CryotherapyDetail = () => {
               </div>
             </div>
 
+            {/* Gallery mosaic */}
+            <div>
+              <div className="grid grid-cols-3 grid-rows-2 gap-3">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }} transition={{ duration: 0.6 }}
+                  className="col-span-2 row-span-2 rounded-3xl overflow-hidden shadow-elegant"
+                >
+                  <img src={cryo1} alt="Cryotherapy treatment" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
+                  className="rounded-3xl overflow-hidden shadow-soft aspect-square"
+                >
+                  <img src={cryo2} alt="Cryotherapy treatment" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
+                  className="rounded-3xl overflow-hidden shadow-soft aspect-square"
+                >
+                  <img src={cryo3} alt="Cryotherapy treatment" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
+                </motion.div>
+              </div>
+            </div>
+
             {/* Experience */}
             <div>
-              <h2 className="font-display text-3xl mb-6">Treatment Experience</h2>
-              <div className="space-y-8">
+              <h2 className="font-display text-3xl mb-6">Treatment Experience</h2>              <div className="space-y-8">
                 {experiencePhases.map((phase) => (
                   <div key={phase.phase}>
                     <h3 className="font-display text-xl text-primary mb-4">{phase.phase}</h3>
@@ -315,6 +345,32 @@ const CryotherapyDetail = () => {
               <Button asChild variant="glass" size="lg" className="mt-3 w-full">
                 <Link to="/contact">Ask a Question</Link>
               </Button>
+            </div>
+
+            {/* Services navigation card */}
+            <div className="bg-card rounded-3xl shadow-soft overflow-hidden">
+              <div className="bg-primary px-6 py-4">
+                <h4 className="font-display text-xl text-primary-foreground text-center">Services</h4>
+              </div>
+              <div className="p-4 space-y-2">
+                {/* Current service highlighted */}
+                <Link
+                  to="/services/localized-cryotherapy"
+                  className="flex items-center justify-center w-full px-4 py-4 rounded-2xl bg-primary text-primary-foreground font-medium text-sm text-center border-2 border-primary/30 transition-all"
+                >
+                  Cryotherapy
+                </Link>
+                {/* Other services */}
+                {services.filter(s => s.slug !== "localized-cryotherapy").map(s => (
+                  <Link
+                    key={s.slug}
+                    to={`/services/${s.slug}`}
+                    className="flex items-center justify-center w-full px-4 py-4 rounded-2xl bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground font-medium text-sm text-center transition-all duration-200"
+                  >
+                    {s.title.split("(")[0].trim()}
+                  </Link>
+                ))}
+              </div>
             </div>
           </aside>
         </div>
