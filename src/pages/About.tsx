@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { Heart, ShieldCheck, Sparkles, Users, Clock, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { staff } from "@/data/staff";
 import { services } from "@/data/services";
 import { GradientBlobs } from "@/components/GradientBlobs";
-import { ChevronLeft, ChevronRight, Quote, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Testimonials } from "@/components/sections/Testimonials";
 import laser from "@/assets/about-1.jpeg";
 import cryo from "@/assets/about-2.jpeg";
 import contour from "@/assets/about-3.jpeg";
@@ -37,88 +37,6 @@ const whyFeatures = [
   { icon: Clock, title: "No Downtime", desc: "All our treatments are non-invasive. Return to your daily routine immediately after every session." },
   { icon: Star, title: "Inclusive & Welcoming", desc: "We serve everyone — all genders, all skin tones, all backgrounds. Everyone deserves to feel cared for." },
 ];
-
-const testimonials = [
-  {
-    name: "Grace T",
-    role: "Tranquil Escape Enthusiast",
-    rating: 5,
-    text: "The moment I step into this spa, I'm transported to a world of tranquility. The serene ambiance, skilled therapists, and personalized treatments make every visit an indulgent escape. It's not just a spa; it's my sanctuary for relaxation and rejuvenation.",
-  },
-  {
-    name: "David S",
-    role: "Stress-Free Convert",
-    rating: 5,
-    text: "As someone with a demanding job, I never realized the importance of self-care until I discovered this spa. The massages are heavenly, and the staff's attention to detail is remarkable. It's become my go-to place to unwind and de-stress. Highly recommend!",
-  },
-  {
-    name: "Isabella M",
-    role: "Radiance Unleashed",
-    rating: 5,
-    text: "I've tried various skincare treatments, but nothing compares to the radiant glow I've achieved at this spa. The skincare experts here go beyond expectations, customizing facials that leave my skin luminous. It's my secret weapon for a confidence boost!",
-  },
-  {
-    name: "Alex B",
-    role: "Couples' Retreat Fanatic",
-    rating: 5,
-    text: "My partner and I love indulging in the couples' spa experiences here. The intimate atmosphere, coupled with skilled therapists, creates magical moments of relaxation. It's become our ritual for reconnecting and unwinding together. Truly a gem!",
-  },
-];
-
-const TestimonialsSlider = () => {
-  const [i, setI] = useState(0);
-  const next = () => setI((p) => (p + 1) % testimonials.length);
-  const prev = () => setI((p) => (p - 1 + testimonials.length) % testimonials.length);
-  const t = testimonials[i];
-
-  return (
-    <div className="max-w-4xl mx-auto">
-      <div className="relative glass rounded-3xl p-10 md:p-16 shadow-elegant">
-        <Quote className="absolute top-8 left-8 h-12 w-12 text-primary/15" />
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-            className="text-center"
-          >
-            <div className="flex justify-center gap-1 mb-6">
-              {Array.from({ length: t.rating }).map((_, k) => (
-                <Star key={k} className="h-4 w-4 fill-accent text-accent" />
-              ))}
-            </div>
-            <p className="font-display text-2xl md:text-3xl text-foreground leading-relaxed italic">
-              &ldquo;{t.text}&rdquo;
-            </p>
-            <p className="mt-6 font-semibold text-foreground">{t.name}</p>
-            <p className="mt-1 text-sm uppercase tracking-[0.2em] text-primary">{t.role}</p>
-          </motion.div>
-        </AnimatePresence>
-
-        <div className="flex justify-center gap-3 mt-10">
-          <button onClick={prev} className="h-11 w-11 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors grid place-items-center">
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <button onClick={next} className="h-11 w-11 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors grid place-items-center">
-            <ChevronRight className="h-4 w-4" />
-          </button>
-        </div>
-      </div>
-
-      <div className="flex justify-center gap-2 mt-6">
-        {testimonials.map((_, k) => (
-          <button
-            key={k}
-            onClick={() => setI(k)}
-            className={`h-1.5 rounded-full transition-all ${k === i ? "w-8 bg-primary" : "w-1.5 bg-primary/20"}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const ServicesTabsSection = () => {
   const [active, setActive] = useState(services[0].slug);
@@ -334,43 +252,6 @@ const About = () => (
       </div>
     </section>
 
-    {/* Team */}
-    <section className="py-8 sm:py-12">
-      <div className="container-luxe">
-        <div className="text-center max-w-2xl mx-auto mb-6">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Our Team</p>
-          <h2 className="font-display text-5xl md:text-6xl">
-            Caring <span className="italic text-gradient">Experts</span> You Can{" "}
-            <span className="italic text-gradient">Trust</span>
-          </h2>
-        </div>
-        <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-          Our team is made up of trained, caring professionals who understand the importance of comfort, safety, and visible results. From your first consultation to your final session, you'll be guided with expertise, attention, and empathy. We combine experience with innovation, ensuring that every client receives treatments that are both safe and effective.
-        </p>
-        <div className="grid md:grid-cols-3 gap-6">
-          {staff.map((s, i) => (
-            <motion.div
-              key={s.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="bg-card rounded-3xl overflow-hidden shadow-soft hover:shadow-elegant transition-all"
-            >
-              <div className="aspect-[3/4] overflow-hidden">
-                <img src={s.image} alt={s.name} loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-              </div>
-              <div className="p-7">
-                <h3 className="font-display text-2xl">{s.name}</h3>
-                <p className="text-sm text-primary mt-1">{s.role}</p>
-                <p className="text-sm text-muted-foreground mt-4 leading-relaxed">{s.bio}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-
     {/* Services Tabs */}
     <ServicesTabsSection />
 
@@ -404,23 +285,9 @@ const About = () => (
       </div>
     </section>
 
-    {/* Testimonials */}
-    <section className="py-8 sm:py-12">
-      <div className="container-luxe">
-        <div className="text-center max-w-2xl mx-auto mb-8">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Testimonial</p>
-          <h2 className="font-display text-5xl md:text-6xl">
-            What our clients say about their{" "}
-            <span className="italic text-gradient">experience</span>
-          </h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Real stories from people who trusted us with their skin and left feeling more comfortable, confident, and cared for. Every visit is designed to make you feel at ease and see results that truly matter.
-          </p>
-        </div>
-        <TestimonialsSlider />
-      </div>
-    </section>
+    {/* Testimonials — Google Reviews */}
+    <Testimonials />
   </>
-);
+);;
 
 export default About;

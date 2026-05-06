@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { GradientBlobs } from "@/components/GradientBlobs";
+import { Testimonials } from "@/components/sections/Testimonials";
 
 interface FAQItem {
   q: string;
@@ -192,18 +193,8 @@ const FAQs = () => (
       </div>
     </section>
 
-    {/* Testimonial teaser */}
-    <section className="py-10 bg-soft-gradient">
-      <div className="container-luxe max-w-3xl text-center">
-        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Testimonial</p>
-        <h2 className="font-display text-4xl md:text-5xl">
-          What our clients say about their <span className="italic text-gradient">experience</span>
-        </h2>
-        <p className="mt-6 text-muted-foreground leading-relaxed">
-          Real stories from people who trusted us with their skin and left feeling more comfortable, confident, and cared for. Every visit is designed to make you feel at ease and see results that truly matter.
-        </p>
-      </div>
-    </section>
+    {/* Google Reviews widget */}
+    <Testimonials />
   </>
 );
 
