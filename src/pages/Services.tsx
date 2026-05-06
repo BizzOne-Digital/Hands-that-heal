@@ -10,7 +10,7 @@ const Services = () => (
     <meta name="description" content="Laser hair removal, organic teeth whitening, body contouring, Brazilian laser, and localized cryotherapy. Safe for all skin tones in Hamilton, ON." />
 
     {/* Hero */}
-    <section className="relative pt-28 sm:pt-40 pb-8 sm:pb-12 overflow-hidden">
+    <section className="relative pt-28 sm:pt-36 pb-6 sm:pb-10 overflow-hidden">
       <GradientBlobs />
       <div className="container-luxe relative">
         <div className="max-w-3xl">
@@ -27,7 +27,7 @@ const Services = () => (
     </section>
 
     {/* Stats strip */}
-    <section className="py-6 bg-deep-gradient mb-8">
+    <section className="py-4 bg-deep-gradient mb-6">
       <div className="container-luxe">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
@@ -46,8 +46,8 @@ const Services = () => (
     </section>
 
     {/* Service list */}
-    <section className="pb-16">
-      <div className="container-luxe space-y-8">
+    <section className="pb-10">
+      <div className="container-luxe space-y-6">
         {services.map((s, i) => (
           <motion.div
             key={s.slug}

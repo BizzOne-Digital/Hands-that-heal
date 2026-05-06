@@ -39,7 +39,7 @@ export const Hero = () => (
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-8 text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed"
         >
-          From smooth, long-lasting results with Primelase laser hair removal and Brazilian waxing, to body contouring that enhances your natural shape, and organic teeth whitening for a brighter, more confident smile.
+          From smooth, long-lasting results with Primelase laser hair removal and Brazilian laser, to body contouring that enhances your natural shape, and organic teeth whitening for a brighter, more confident smile.
           <br /><br />
           We also offer advanced cryotherapy treatments, supporting both aesthetic rejuvenation and orthopaedic recovery.
         </motion.p>

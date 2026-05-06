@@ -124,16 +124,16 @@ const ServicesTabsSection = () => {
   const [active, setActive] = useState(services[0].slug);
   const current = services.find((s) => s.slug === active)!;
   return (
-    <section className="py-12 sm:py-16">
+    <section className="py-8 sm:py-12">
       <div className="container-luxe">
-        <div className="text-center max-w-2xl mx-auto mb-10">
+        <div className="text-center max-w-2xl mx-auto mb-6">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">What We Offer</p>
           <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
             Our <span className="italic text-gradient">Treatments</span>
           </h2>
         </div>
         {/* Tab buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
+        <div className="flex flex-wrap justify-center gap-3 mb-6">
           {services.map((s) => (
             <button
               key={s.slug}
@@ -187,7 +187,7 @@ const About = () => (
     <meta name="description" content="Dedicated to providing care that relaxes, heals, and enhances your overall well-being. Meet the team at Hands That Heal." />
 
     {/* Hero */}
-    <section className="relative pt-28 sm:pt-40 pb-12 sm:pb-20 overflow-hidden">
+    <section className="relative pt-28 sm:pt-36 pb-8 sm:pb-12 overflow-hidden">
       <GradientBlobs />
       <div className="container-luxe relative max-w-4xl">
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">About Hands That Heal</p>
@@ -202,7 +202,7 @@ const About = () => (
     </section>
 
     {/* Image mosaic — premium visual intro */}
-    <section className="pb-10">
+    <section className="pb-6">
       <div className="container-luxe">
         <div className="grid grid-cols-3 grid-rows-2 gap-3">
           <motion.div
@@ -231,7 +231,7 @@ const About = () => (
     </section>
 
     {/* Clinic built on expertise */}
-    <section className="py-12 sm:py-16 bg-soft-gradient">
+    <section className="py-8 sm:py-12 bg-soft-gradient">
       <div className="container-luxe">
         {/* Heading + text — full width on top */}
         <div className="max-w-3xl mb-10">
@@ -242,7 +242,7 @@ const About = () => (
             The Hands That Heal brings over 12+ years of professional experience in aesthetic and wellness care, delivering results-driven treatments with a clinical, detail-focused approach.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            We are among the first to introduce advanced Cryotherapy treatments for the first time in HAMILTON, offering innovation in both beauty and orthopaedic care, alongside services such as laser hair removal with Primelase, organic teeth whitening, Brazilian waxing, and skin rejuvenation.
+            We are among the first to introduce advanced Cryotherapy treatments for the first time in HAMILTON, offering innovation in both beauty and orthopaedic care, alongside services such as laser hair removal with Primelase, organic teeth whitening, Brazilian laser, and skin rejuvenation.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             Every treatment begins with understanding your concerns and building a personalised plan that always stays focused on safe procedures, visible results, and long-term improvement, not generic solutions.
@@ -273,7 +273,7 @@ const About = () => (
       </div>
     </section>
     {/* Caring Hands Trusted Healing — image + text intro */}
-    <section className="py-20">
+    <section className="py-10">
       <div className="container-luxe grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
         {/* Image grid */}
         <div className="grid grid-cols-2 gap-3">
@@ -308,9 +308,9 @@ const About = () => (
     </section>
 
     {/* Mission / Vision / Goal */}
-    <section className="py-20 bg-soft-gradient">
+    <section className="py-8 sm:py-12 bg-soft-gradient">
       <div className="container-luxe">
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Our Mission and Vision</p>
           <h2 className="font-display text-4xl md:text-5xl">
             Dedicated to providing care that relaxes, heals, and enhances your overall well-being.
@@ -335,7 +335,7 @@ const About = () => (
     </section>
 
     {/* Team */}
-    <section className="py-12 sm:py-20">
+    <section className="py-8 sm:py-12">
       <div className="container-luxe">
         <div className="text-center max-w-2xl mx-auto mb-6">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Our Team</p>
@@ -344,7 +344,7 @@ const About = () => (
             <span className="italic text-gradient">Trust</span>
           </h2>
         </div>
-        <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-16 leading-relaxed">
+        <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
           Our team is made up of trained, caring professionals who understand the importance of comfort, safety, and visible results. From your first consultation to your final session, you'll be guided with expertise, attention, and empathy. We combine experience with innovation, ensuring that every client receives treatments that are both safe and effective.
         </p>
         <div className="grid md:grid-cols-3 gap-6">
@@ -375,8 +375,8 @@ const About = () => (
     <ServicesTabsSection />
 
     {/* Why Choose Us */}
-    <section className="py-12 sm:py-20 bg-soft-gradient">      <div className="container-luxe">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+    <section className="py-8 sm:py-12 bg-soft-gradient">      <div className="container-luxe">
+        <div className="text-center max-w-2xl mx-auto mb-8">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Why Choose Us</p>
           <h2 className="font-display text-5xl md:text-6xl leading-[1.05]">
             Care that feels right{" "}
@@ -405,9 +405,9 @@ const About = () => (
     </section>
 
     {/* Testimonials */}
-    <section className="py-12 sm:py-20">
+    <section className="py-8 sm:py-12">
       <div className="container-luxe">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-8">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Testimonial</p>
           <h2 className="font-display text-5xl md:text-6xl">
             What our clients say about their{" "}

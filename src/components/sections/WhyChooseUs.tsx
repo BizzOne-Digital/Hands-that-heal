@@ -35,7 +35,7 @@ const features = [
 ];
 
 export const WhyChooseUs = () => (
-  <section className="py-12 sm:py-20 bg-soft-gradient">
+  <section className="py-8 sm:py-12 bg-soft-gradient">
     <div className="container-luxe">
       <div className="text-center max-w-2xl mx-auto mb-10">
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Why Choose Us</p>

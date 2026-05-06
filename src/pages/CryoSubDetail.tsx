@@ -1,4 +1,3 @@
-import { useState, useRef, useCallback } from "react";
 import { Link, useLocation, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, Sparkles } from "lucide-react";
@@ -39,86 +38,6 @@ const galleryMap: Record<string, [string, string, string]> = {
   "cryo-ortho":       [cryoOrtho1,     cryoOrtho2,     cryoOrtho3],
   "cryo-sports":      [cryoSports1,    cryoSports2,    cryoSports3],
   "cryo-postsurgery": [cryoPost1,      cryoPost2,      cryoPost3],
-};
-
-// ── BEFORE / AFTER IMAGES ─────────────────────────────────────────────────────
-// Place before/after images in src/assets/results/ with these exact filenames:
-//
-//   cryo-aesthetic-before.jpg   cryo-aesthetic-after.jpg
-//   cryo-ortho-before.jpg       cryo-ortho-after.jpg
-//   cryo-sports-before.jpg      cryo-sports-after.jpg
-//   cryo-postsurgery-before.jpg cryo-postsurgery-after.jpg
-//
-// Then uncomment the imports below and replace the placeholder strings in resultMap.
-// ─────────────────────────────────────────────────────────────────────────────
-// import cryoAestheticBefore  from "@/assets/results/cryo-aesthetic-before.jpg";
-// import cryoAestheticAfter   from "@/assets/results/cryo-aesthetic-after.jpg";
-// import cryoOrthoBefore      from "@/assets/results/cryo-ortho-before.jpg";
-// import cryoOrthoAfter       from "@/assets/results/cryo-ortho-after.jpg";
-// import cryoSportsBefore     from "@/assets/results/cryo-sports-before.jpg";
-// import cryoSportsAfter      from "@/assets/results/cryo-sports-after.jpg";
-// import cryoPostBefore       from "@/assets/results/cryo-postsurgery-before.jpg";
-// import cryoPostAfter        from "@/assets/results/cryo-postsurgery-after.jpg";
-
-const PH_B = (l: string) => `https://placehold.co/800x600/d4e8e0/4a9e8a?text=Before+%E2%80%94+${encodeURIComponent(l)}`;
-const PH_A = (l: string) => `https://placehold.co/800x600/4a9e8a/ffffff?text=After+%E2%80%94+${encodeURIComponent(l)}`;
-
-const resultMap: Record<string, { before: string; after: string; desc: string }> = {
-  "cryo-aesthetic":   { before: PH_B("Aesthetic"),   after: PH_A("Sculpted"),  desc: "Visible body sculpting and skin rejuvenation after Aesthetic Cryotherapy sessions." },
-  "cryo-ortho":       { before: PH_B("Joint Pain"),  after: PH_A("Relief"),    desc: "Reduced joint inflammation and improved mobility after Orthopaedic Cryotherapy." },
-  "cryo-sports":      { before: PH_B("Soreness"),    after: PH_A("Recovered"), desc: "Faster muscle recovery and reduced soreness after Sports Cryotherapy sessions." },
-  "cryo-postsurgery": { before: PH_B("Post-Op"),     after: PH_A("Healed"),    desc: "Reduced post-surgical swelling and improved comfort after cryotherapy sessions." },
-};
-
-// ── Before/After Slider ───────────────────────────────────────────────────────
-const BeforeAfterSlider = ({ before, after }: { before: string; after: string }) => {
-  const [pos, setPos] = useState(50);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const dragging = useRef(false);
-
-  const updatePos = useCallback((clientX: number) => {
-    const rect = containerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    setPos(Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100)));
-  }, []);
-
-  return (
-    <div
-      ref={containerRef}
-      className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-elegant select-none cursor-col-resize"
-      onMouseDown={() => { dragging.current = true; }}
-      onMouseMove={(e) => { if (dragging.current) updatePos(e.clientX); }}
-      onMouseUp={() => { dragging.current = false; }}
-      onMouseLeave={() => { dragging.current = false; }}
-      onTouchMove={(e) => updatePos(e.touches[0].clientX)}
-      onTouchStart={() => { dragging.current = true; }}
-      onTouchEnd={() => { dragging.current = false; }}
-    >
-      {/* After — full width behind */}
-      <img src={after} alt="After" className="absolute inset-0 w-full h-full object-cover object-center" draggable={false} />
-      {/* Before — clipped left */}
-      <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
-        <img
-          src={before}
-          alt="Before"
-          className="absolute inset-0 h-full object-cover object-left"
-          style={{ width: `${(100 / pos) * 100}%`, maxWidth: "none" }}
-          draggable={false}
-        />
-      </div>
-      {/* Divider + handle */}
-      <div className="absolute top-0 bottom-0 w-0.5 bg-white z-10 pointer-events-none" style={{ left: `${pos}%` }}>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-11 w-11 rounded-full bg-white shadow-elegant flex items-center justify-center pointer-events-auto cursor-col-resize">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M8 5L4 11L8 17" stroke="#4a9e8a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M14 5L18 11L14 17" stroke="#4a9e8a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </div>
-      </div>
-      <span className="absolute bottom-4 left-4 z-10 bg-foreground/60 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">Before</span>
-      <span className="absolute bottom-4 right-4 z-10 bg-primary/80 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">After</span>
-    </div>
-  );
 };
 
 const heroImages: Record<string, string> = {
@@ -590,32 +509,6 @@ const CryoSubDetail = () => {
                 ))}
               </div>
             </div>
-
-            {/* Before / After */}
-            {resultMap[service.slug] && (
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="font-display text-3xl mb-6">See the Results</h2>
-                <BeforeAfterSlider
-                  before={resultMap[service.slug].before}
-                  after={resultMap[service.slug].after}
-                />
-                <p className="mt-4 text-sm text-muted-foreground leading-relaxed text-center">
-                  {resultMap[service.slug].desc}
-                </p>
-                <p className="text-center text-xs text-muted-foreground mt-2 flex items-center justify-center gap-2">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-primary">
-                    <path d="M5 3L2 7L5 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M9 3L12 7L9 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  Drag the handle to compare before &amp; after
-                </p>
-              </motion.div>
-            )}
 
             {/* FAQs */}
             <div>

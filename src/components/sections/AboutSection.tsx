@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { staff } from "@/data/staff";
 
 export const AboutSection = () => (
-  <section className="py-12 sm:py-20 bg-soft-gradient">
+  <section className="py-8 sm:py-12 bg-soft-gradient">
     <div className="container-luxe">
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24 items-center">
         <div>

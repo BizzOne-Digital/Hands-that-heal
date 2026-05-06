@@ -159,7 +159,7 @@ export const services: Service[] = [
   },
   {
     slug: "brazilian-laser",
-    title: "Brazilian Waxing (Male & Female)",
+    title: "Brazilian Laser",
     tagline: "Clean, hygienic, and comfortable waxing service with full care and privacy.",
     description:
       "Experience smooth, hair-free skin with our Brazilian laser hair removal treatment, designed for both men and women. This treatment targets hair at the root using advanced laser technology, helping reduce hair growth over time while keeping the skin soft, clean, and irritation-free.",

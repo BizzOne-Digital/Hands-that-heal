@@ -5,41 +5,29 @@ import { motion, AnimatePresence } from "framer-motion";
 // Place your before/after images in:  src/assets/results/
 //
 // Required filenames:
-//   wax-before.jpg    — skin with hair (before waxing)
-//   wax-after.jpg     — smooth skin (after waxing)
-//   teeth-before.jpg  — stained/dull teeth (before whitening)
-//   teeth-after.jpg   — bright white smile (after whitening)
-//   laser-before.jpg  — skin with hair (before laser)
-//   laser-after.jpg   — smooth skin (after laser)
+//   wax-before.jpg         — skin with hair (before waxing)
+//   wax-after.jpg          — smooth skin (after waxing)
+//   teeth-before.jpg       — stained/dull teeth (before whitening)
+//   teeth-after.jpg        — bright white smile (after whitening)
+//   laser-before.jpg       — skin with hair (before laser)
+//   laser-after.jpg        — smooth skin (after laser)
+//   contour-before.jpg     — body before contouring
+//   contour-after.jpg      — sculpted body after contouring
 //
 // Once you add the images, uncomment the real imports below
 // and delete the placeholder strings.
 // ─────────────────────────────────────────────────────────────────────────────
 
-// import waxBefore   from "@/assets/results/wax-before.jpg";
-// import waxAfter    from "@/assets/results/wax-after.jpg";
-// import teethBefore from "@/assets/results/teeth-before.jpg";
-// import teethAfter  from "@/assets/results/teeth-after.jpg";
-// import laserBefore from "@/assets/results/laser-before.jpg";
-// import laserAfter  from "@/assets/results/laser-after.jpg";
-
-const waxBefore   = "https://placehold.co/800x600/d4e8e0/4a9e8a?text=Before+%E2%80%94+Waxing";
-const waxAfter    = "https://placehold.co/800x600/4a9e8a/ffffff?text=After+%E2%80%94+Smooth+Skin";
-const teethBefore = "https://placehold.co/800x600/f5f0e8/9e8a4a?text=Before+%E2%80%94+Teeth";
-const teethAfter  = "https://placehold.co/800x600/4a9e8a/ffffff?text=After+%E2%80%94+Bright+Smile";
-const laserBefore = "https://placehold.co/800x600/d4e8e0/4a9e8a?text=Before+%E2%80%94+Laser";
-const laserAfter  = "https://placehold.co/800x600/4a9e8a/ffffff?text=After+%E2%80%94+Smooth+Skin";
+import teethBefore   from "@/assets/results/teeth-before.jpg";
+import teethAfter    from "@/assets/results/teeth-after.jpg";
+import laserBefore   from "@/assets/results/laser-before.jpg";
+import laserAfter    from "@/assets/results/laser-after.jpg";
+import contourBefore from "@/assets/results/contour-before.jpg";
+import contourAfter  from "@/assets/results/contour-after.jpg";
 
 type Tab = { id: string; label: string; before: string; after: string; desc: string };
 
 const tabs: Tab[] = [
-  {
-    id: "waxing",
-    label: "Waxing",
-    before: waxBefore,
-    after: waxAfter,
-    desc: "Clean, smooth skin after professional waxing — no irritation, no stubble.",
-  },
   {
     id: "teeth",
     label: "Teeth Whitening",
@@ -53,6 +41,13 @@ const tabs: Tab[] = [
     before: laserBefore,
     after: laserAfter,
     desc: "Long-lasting smooth skin after Primelase laser hair removal.",
+  },
+  {
+    id: "contouring",
+    label: "Body Contouring",
+    before: contourBefore,
+    after: contourAfter,
+    desc: "Visibly sculpted and toned results after body contouring treatment — targeted fat reduction with no downtime.",
   },
 ];
 
@@ -131,11 +126,11 @@ const Slider = ({ tab }: { tab: Tab }) => {
 
 // ── Section ───────────────────────────────────────────────────────────────────
 export const BeforeAfter = () => {
-  const [active, setActive] = useState("waxing");
+  const [active, setActive] = useState("teeth");
   const current = tabs.find((t) => t.id === active)!;
 
   return (
-    <section className="py-12 sm:py-16 bg-soft-gradient">
+    <section className="py-8 sm:py-12 bg-soft-gradient">
       <div className="container-luxe">
         {/* Heading */}
         <motion.div

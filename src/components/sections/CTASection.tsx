@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 export const CTASection = () => (
-  <section className="py-12 sm:py-20">
+  <section className="py-8 sm:py-12">
     <div className="container-luxe">
       <div className="relative overflow-hidden rounded-[2rem] bg-deep-gradient p-8 sm:p-12 md:p-20 shadow-elegant">
         <div className="blob bg-primary-glow h-[500px] w-[500px] -top-40 -right-20 opacity-30" />

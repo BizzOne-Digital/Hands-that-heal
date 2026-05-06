@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 export const NextStep = () => (
-  <section className="py-12 sm:py-20">
+  <section className="py-8 sm:py-12">
     <div className="container-luxe">
       <motion.div
         initial={{ opacity: 0, y: 24 }}

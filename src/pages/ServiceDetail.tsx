@@ -63,10 +63,10 @@ const ServiceDetail = () => {
       </section>
 
       {/* Main content */}
-      <section className="relative py-12 sm:py-16 overflow-hidden">
+      <section className="relative py-8 sm:py-12 overflow-hidden">
         <GradientBlobs />
-        <div className="container-luxe relative grid lg:grid-cols-3 gap-16">
-          <div className="lg:col-span-2 space-y-16">
+        <div className="container-luxe relative grid lg:grid-cols-3 gap-10">
+          <div className="lg:col-span-2 space-y-10">
 
             {/* Overview */}
             <div>
@@ -273,7 +273,7 @@ const ServiceDetail = () => {
 
       {/* Service-specific CTA */}
       {service.cta && (
-        <section className="py-16">
+        <section className="py-8 sm:py-12">
           <div className="container-luxe">
             <div className="relative overflow-hidden rounded-[2rem] bg-deep-gradient p-8 sm:p-12 md:p-16 shadow-elegant">
               <div className="blob bg-primary-glow h-[500px] w-[500px] -top-40 -right-20 opacity-30" />
@@ -302,9 +302,9 @@ const ServiceDetail = () => {
       )}
 
       {/* Other services */}
-      <section className="py-12 sm:py-16 bg-soft-gradient">
+      <section className="py-8 sm:py-12 bg-soft-gradient">
         <div className="container-luxe">
-          <h2 className="font-display text-4xl mb-10">Continue exploring</h2>
+          <h2 className="font-display text-4xl mb-8">Continue exploring</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {others.map((o) => (
               <Link key={o.slug} to={`/services/${o.slug}`} className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-elegant transition-all">

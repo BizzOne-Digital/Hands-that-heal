@@ -9,7 +9,7 @@ const imgs = [
   { src: laser,    alt: "Laser Hair Removal",       label: "Laser Hair Removal" },
   { src: teeth,    alt: "Teeth Whitening",           label: "Organic Teeth Whitening" },
   { src: contour,  alt: "Body Contouring",           label: "Body Contouring" },
-  { src: brazilian,alt: "Brazilian Waxing",          label: "Brazilian Waxing" },
+  { src: brazilian,alt: "Brazilian Laser",           label: "Brazilian Laser" },
   { src: cryo,     alt: "Cryotherapy",               label: "Cryotherapy" },
 ];
 

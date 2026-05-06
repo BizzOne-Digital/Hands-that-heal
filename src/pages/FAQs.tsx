@@ -158,7 +158,7 @@ const FAQs = () => (
     <title>FAQs — Hands That Heal</title>
     <meta name="description" content="Frequently asked questions about laser hair removal, body contouring, teeth whitening, Brazilian laser, and cryotherapy at Hands That Heal." />
 
-    <section className="relative pt-28 sm:pt-40 pb-12 sm:pb-20 overflow-hidden">
+    <section className="relative pt-28 sm:pt-36 pb-8 sm:pb-12 overflow-hidden">
       <GradientBlobs />
       <div className="container-luxe relative max-w-4xl">
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Frequently Asked Questions</p>
@@ -169,8 +169,8 @@ const FAQs = () => (
       </div>
     </section>
 
-    <section className="pb-32">
-      <div className="container-luxe max-w-4xl space-y-12">
+    <section className="pt-6 pb-16">
+      <div className="container-luxe max-w-4xl space-y-8">
         {faqData.map((cat, i) => (
           <motion.div
             key={cat.title}
@@ -193,7 +193,7 @@ const FAQs = () => (
     </section>
 
     {/* Testimonial teaser */}
-    <section className="py-20 bg-soft-gradient">
+    <section className="py-10 bg-soft-gradient">
       <div className="container-luxe max-w-3xl text-center">
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Testimonial</p>
         <h2 className="font-display text-4xl md:text-5xl">

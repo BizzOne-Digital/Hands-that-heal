@@ -20,7 +20,7 @@ const Contact = () => {
       <title>Contact Us — Hands That Heal</title>
       <meta name="description" content="Get in touch with Hands That Heal. Visit, call, or send us a message." />
 
-      <section className="relative pt-28 sm:pt-40 pb-12 sm:pb-20 overflow-hidden">
+      <section className="relative pt-28 sm:pt-36 pb-8 sm:pb-12 overflow-hidden">
         <GradientBlobs />
         <div className="container-luxe relative max-w-4xl">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Get in Touch</p>
@@ -34,7 +34,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="pb-32">
+      <section className="pb-16">
         <div className="container-luxe grid lg:grid-cols-5 gap-8">
           <form onSubmit={submit} className="lg:col-span-3 bg-card rounded-3xl shadow-soft p-6 sm:p-8 md:p-12">
             <h2 className="font-display text-3xl mb-8">Fill the form below</h2>

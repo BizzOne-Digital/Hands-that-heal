@@ -1,55 +1,41 @@
 import { useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 
-// ── IMAGE MAP ─────────────────────────────────────────────────────────────────
-// Place before/after images in src/assets/results/ with these filenames:
-//   laser-before.jpg   laser-after.jpg
-//   teeth-before.jpg   teeth-after.jpg
-//   contour-before.jpg contour-after.jpg
-//   waxing-before.jpg  waxing-after.jpg
-//   cryo-before.jpg    cryo-after.jpg
-//
-// Once images are added, uncomment the real imports below and remove placeholders.
-// ─────────────────────────────────────────────────────────────────────────────
-
-// import laserBefore   from "@/assets/results/laser-before.jpg";
-// import laserAfter    from "@/assets/results/laser-after.jpg";
-// import teethBefore   from "@/assets/results/teeth-before.jpg";
-// import teethAfter    from "@/assets/results/teeth-after.jpg";
-// import contourBefore from "@/assets/results/contour-before.jpg";
-// import contourAfter  from "@/assets/results/contour-after.jpg";
-// import waxingBefore  from "@/assets/results/waxing-before.jpg";
-// import waxingAfter   from "@/assets/results/waxing-after.jpg";
-// import cryoBefore    from "@/assets/results/cryo-before.jpg";
-// import cryoAfter     from "@/assets/results/cryo-after.jpg";
-
-const PH_B = (label: string) => `https://placehold.co/800x600/d4e8e0/4a9e8a?text=Before+%E2%80%94+${encodeURIComponent(label)}`;
-const PH_A = (label: string) => `https://placehold.co/800x600/4a9e8a/ffffff?text=After+%E2%80%94+${encodeURIComponent(label)}`;
+import laserBefore   from "@/assets/results/laser-before.jpg";
+import laserAfter    from "@/assets/results/laser-after.jpg";
+import teethBefore   from "@/assets/results/teeth-before.jpg";
+import teethAfter    from "@/assets/results/teeth-after.jpg";
+import contourBefore from "@/assets/results/contour-before.jpg";
+import contourAfter  from "@/assets/results/contour-after.jpg";
+import waxBefore     from "@/assets/results/wax-before.jpg";
+import waxAfter      from "@/assets/results/wax-after.jpg";
+import cryoBefore    from "@/assets/results/cryo-before.jpg";
+import cryoAfter     from "@/assets/results/cryo-after.jpg";
 
 const resultMap: Record<string, { before: string; after: string; desc: string }> = {
   "laser-hair-removal": {
-    before: PH_B("Laser"),
-    after:  PH_A("Smooth Skin"),
+    before: laserBefore,
+    after:  laserAfter,
     desc:   "Visible hair reduction after Primelase laser sessions — smooth, irritation-free skin.",
   },
   "organic-teeth-whitening": {
-    before: PH_B("Teeth"),
-    after:  PH_A("Bright Smile"),
+    before: teethBefore,
+    after:  teethAfter,
     desc:   "Noticeably brighter smile after a single organic whitening session.",
   },
   "body-contouring": {
-    before: PH_B("Contouring"),
-    after:  PH_A("Sculpted"),
+    before: contourBefore,
+    after:  contourAfter,
     desc:   "Visible body definition and reduced fat deposits after MC1 PLUS sessions.",
   },
   "brazilian-laser": {
-    before: PH_B("Waxing"),
-    after:  PH_A("Smooth Skin"),
-    desc:   "Clean, smooth skin after professional Brazilian waxing — no irritation.",
+    before: waxBefore,
+    after:  waxAfter,
+    desc:   "Clean, smooth skin after professional Brazilian laser — no irritation.",
   },
   "localized-cryotherapy": {
-    before: PH_B("Cryo"),
-    after:  PH_A("Sculpted"),
+    before: cryoBefore,
+    after:  cryoAfter,
     desc:   "Improved contour and reduced puffiness after SubZero cryotherapy sessions.",
   },
 };
