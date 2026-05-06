@@ -57,10 +57,6 @@ export const AboutSection = () => (
               <div className={`overflow-hidden ${i === 0 ? "aspect-[16/10]" : "aspect-[3/4]"}`}>
                 <img src={s.image} alt={s.name} loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
               </div>
-              <div className="p-5">
-                <h4 className="font-display text-xl">{s.name}</h4>
-                <p className="text-xs text-primary mt-1">{s.role}</p>
-              </div>
             </motion.div>
           ))}
         </div>
