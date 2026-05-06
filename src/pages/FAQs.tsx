@@ -163,7 +163,7 @@ const FAQs = () => (
       <GradientBlobs />
       <div className="container-luxe relative max-w-4xl">
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Frequently Asked Questions</p>
-        <h1 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[1.02]">FAQs</h1>
+        <h1 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1.02]">FAQs</h1>
         <p className="font-display text-xl sm:text-2xl md:text-3xl italic text-muted-foreground mt-6 leading-snug">
           The most common questions we've had so far.
         </p>

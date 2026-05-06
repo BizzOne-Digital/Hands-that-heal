@@ -109,7 +109,7 @@ const About = () => (
       <GradientBlobs />
       <div className="container-luxe relative max-w-4xl">
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">About Hands That Heal</p>
-        <h1 className="font-display text-4xl sm:text-6xl md:text-8xl leading-[1.02]">
+        <h1 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1.02]">
           Meet Hands <br />
           <span className="italic text-gradient">That Heal.</span>
         </h1>
@@ -120,13 +120,13 @@ const About = () => (
     </section>
 
     {/* Image mosaic — premium visual intro */}
-    <section className="pb-6">
+    <section className="pt-8 sm:pt-12 pb-6">
       <div className="container-luxe">
-        <div className="grid grid-cols-3 grid-rows-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-2 gap-3">
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }} transition={{ duration: 0.7 }}
-            className="col-span-2 row-span-2 rounded-3xl overflow-hidden shadow-elegant"
+            className="sm:col-span-2 sm:row-span-2 rounded-3xl overflow-hidden shadow-elegant"
           >
             <img src={laser} alt="Laser treatment" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
           </motion.div>
@@ -167,7 +167,7 @@ const About = () => (
           </p>
         </div>
         {/* 4 feature cards — full width below */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { icon: ShieldCheck, title: "Medical-Grade", desc: "Clinically trusted systems used in advanced dermatology for safe, precise results." },
             { icon: Heart,       title: "Inclusive",     desc: "A premium care for every skin tone, every body, every identity without limitation." },
@@ -194,11 +194,11 @@ const About = () => (
     <section className="py-10">
       <div className="container-luxe grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
         {/* Image grid */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-soft">
             <img src={about4} alt="Treatment" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           </div>
-          <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-soft mt-8">
+          <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-soft sm:mt-8">
             <img src={about5} alt="Treatment" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           </div>
         </div>
@@ -230,7 +230,7 @@ const About = () => (
       <div className="container-luxe">
         <div className="text-center max-w-3xl mx-auto mb-8">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Our Mission and Vision</p>
-          <h2 className="font-display text-4xl md:text-5xl">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl">
             Dedicated to providing care that relaxes, heals, and enhances your overall well-being.
           </h2>
         </div>
@@ -242,7 +242,7 @@ const About = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="glass rounded-3xl p-8"
+              className="glass rounded-3xl p-5 sm:p-8"
             >
               <h3 className="font-display text-2xl text-primary mb-4">{c.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{c.text}</p>
@@ -259,7 +259,7 @@ const About = () => (
     <section className="py-8 sm:py-12 bg-soft-gradient">      <div className="container-luxe">
         <div className="text-center max-w-2xl mx-auto mb-8">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Why Choose Us</p>
-          <h2 className="font-display text-5xl md:text-6xl leading-[1.05]">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
             Care that feels right{" "}
             <span className="italic text-gradient">from the moment you walk in</span>
           </h2>

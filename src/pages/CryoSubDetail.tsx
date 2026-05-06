@@ -369,8 +369,8 @@ const CryoSubDetail = () => {
       {/* Main content */}
       <section className="relative py-12 sm:py-16 overflow-hidden">
         <GradientBlobs />
-        <div className="container-luxe relative grid lg:grid-cols-3 gap-16">
-          <div className="lg:col-span-2 space-y-16">
+        <div className="container-luxe relative grid lg:grid-cols-3 gap-10">
+          <div className="lg:col-span-2 space-y-10">
 
             {/* Overview */}
             <div>
@@ -446,13 +446,13 @@ const CryoSubDetail = () => {
             {/* Gallery mosaic */}
             {galleryMap[service.slug] && (
               <div>
-                <div className="grid grid-cols-3 grid-rows-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-2 gap-3">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.97 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="col-span-2 row-span-2 rounded-3xl overflow-hidden shadow-elegant"
+                    className="sm:col-span-2 sm:row-span-2 rounded-3xl overflow-hidden shadow-elegant"
                   >
                     <img
                       src={galleryMap[service.slug][0]}
@@ -526,7 +526,7 @@ const CryoSubDetail = () => {
 
           {/* Sidebar */}
           <aside className="lg:sticky lg:top-28 self-start space-y-6">
-            <div className="bg-deep-gradient rounded-3xl p-8 text-primary-foreground shadow-elegant">
+            <div className="bg-deep-gradient rounded-3xl p-6 sm:p-8 text-primary-foreground shadow-elegant">
               <p className="text-xs uppercase tracking-[0.3em] text-primary-glow mb-2">Ready to start?</p>
               <h3 className="font-display text-3xl">Relax Your Body, Restore with Hands That Heal</h3>
               <p className="mt-3 text-primary-foreground/80 text-sm">Book a private consultation today.</p>

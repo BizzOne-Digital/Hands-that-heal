@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import { staff } from "@/data/staff";
 
 export const AboutSection = () => (
-  <section className="py-8 sm:py-12 bg-soft-gradient">
+  <section className="py-8 sm:py-12 bg-soft-gradient overflow-hidden">
     <div className="container-luxe">
-      <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24 items-center">
-        <div>
+      <div className="grid min-w-0 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24 items-center">
+        <div className="min-w-0">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">About Us</p>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
             About Hands That Heal
@@ -26,7 +26,7 @@ export const AboutSection = () => (
             Our trained specialists use proven techniques that are safe and effective for all skin types, ensuring every client feels comfortable and confident in their journey.
           </p>
 
-          <div className="mt-8 sm:mt-10 grid grid-cols-3 gap-3 sm:gap-6">
+          <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
             {[
               { icon: ShieldCheck, label: "Expert Hands. Proven Methods" },
               { icon: Heart, label: "Safe, thoughtful approaches" },
@@ -39,12 +39,12 @@ export const AboutSection = () => (
             ))}
           </div>
 
-          <Button asChild variant="hero" size="lg" className="mt-10">
+          <Button asChild variant="hero" size="lg" className="mt-10 w-full max-w-full whitespace-normal text-center sm:w-auto sm:whitespace-nowrap">
             <Link to="/about">Find Out More about Hands That Heal</Link>
           </Button>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid min-w-0 grid-cols-2 gap-4">
           {staff.map((s, i) => (
             <motion.div
               key={s.name}

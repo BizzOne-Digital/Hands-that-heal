@@ -24,7 +24,7 @@ const Contact = () => {
         <GradientBlobs />
         <div className="container-luxe relative max-w-4xl">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Get in Touch</p>
-          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl leading-[1.05]">
+          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05]">
             Have Anything To Ask?{" "}
             <span className="italic text-gradient">Feel free to reach out.</span>
           </h1>

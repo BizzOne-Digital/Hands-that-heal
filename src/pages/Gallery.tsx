@@ -20,7 +20,7 @@ const Gallery = () => {
         <GradientBlobs />
         <div className="container-luxe relative max-w-4xl">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Real Results</p>
-          <h1 className="font-display text-6xl md:text-7xl leading-[1.05]">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-[1.05]">
             Visible change, <span className="italic text-gradient">honest moments.</span>
           </h1>
         </div>

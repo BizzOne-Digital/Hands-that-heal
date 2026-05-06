@@ -14,8 +14,8 @@ export const Testimonials = () => {
         >
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Reviews</p>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl">
-            What our clients say about their{" "}
-            <span className="italic text-gradient">experience.</span>
+            Beauty Backed by{" "}
+            <span className="italic text-gradient">Results</span>
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             Real stories from people who trusted us with their skin and left feeling more comfortable, confident, and cared for.

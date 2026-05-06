@@ -13,10 +13,10 @@ const ScrollToTop = () => {
 };
 
 export const Layout = () => (
-  <div className="min-h-screen flex flex-col">
+  <div className="min-h-screen flex flex-col overflow-x-hidden w-full">
     <ScrollToTop />
     <Navbar />
-    <main className="flex-1">
+    <main className="flex-1 min-w-0 overflow-x-hidden">
       <Outlet />
     </main>
     <Footer />

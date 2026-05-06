@@ -15,7 +15,7 @@ const Services = () => (
       <div className="container-luxe relative">
         <div className="max-w-3xl">
           <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Our Services</p>
-          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl leading-[1.05]">
+          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05]">
             Step Into Luxury at Our{" "}
             <span className="italic text-gradient">Premier Aesthetic Haven</span>
           </h1>
@@ -29,7 +29,7 @@ const Services = () => (
     {/* Stats strip */}
     <section className="py-4 bg-deep-gradient mb-6">
       <div className="container-luxe">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
             { value: "14+", label: "Years Experience" },
             { value: "5", label: "Premium Services" },
@@ -63,7 +63,7 @@ const Services = () => (
               <div className={`aspect-[4/3] md:aspect-auto overflow-hidden ${i % 2 ? "md:order-2" : ""}`}>
                 <img src={s.image} alt={s.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
-              <div className="p-6 sm:p-10 md:p-14 flex flex-col justify-center">
+              <div className="p-5 sm:p-10 md:p-14 flex flex-col justify-center">
                 <span className="text-xs uppercase tracking-[0.3em] text-primary">0{i + 1}</span>
                 <h3 className="font-display text-3xl md:text-4xl lg:text-5xl mt-4 group-hover:text-primary transition-colors">{s.title}</h3>
                 <p className="mt-2 text-sm italic text-muted-foreground">{s.tagline.split("\n")[0]}</p>

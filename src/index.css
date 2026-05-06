@@ -61,13 +61,20 @@
 
   * { @apply border-border; }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
 
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, sans-serif;
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   h1, h2, h3, h4, .font-display {
@@ -106,7 +113,31 @@
     pointer-events: none;
   }
 
+
+}
+
+/* container-luxe — defined outside @layer so it is NOT purged by Tailwind */
+.container-luxe {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;   /* 16px on mobile */
+  padding-right: 1rem;
+  min-width: 0; /* lets flex/grid ancestors shrink so horizontal padding stays symmetric */
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
   .container-luxe {
-    @apply container mx-auto px-4 sm:px-6 md:px-10;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-luxe {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 }

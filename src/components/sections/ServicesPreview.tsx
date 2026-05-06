@@ -5,10 +5,10 @@ import { services } from "@/data/services";
 import { GradientBlobs } from "@/components/GradientBlobs";
 
 export const ServicesPreview = () => (
-  <section className="relative py-8 sm:py-12 overflow-hidden">
+  <section className="relative py-8 sm:py-12 overflow-hidden w-full">
     <GradientBlobs />
-    <div className="container-luxe relative">
-      <div className="max-w-2xl mb-8 sm:mb-12">
+    <div className="container-luxe relative min-w-0">
+      <div className="max-w-2xl mb-8 sm:mb-12 min-w-0">
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Services</p>
         <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight">
           Step Into Luxury at Our{" "}
@@ -19,7 +19,7 @@ export const ServicesPreview = () => (
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+      <div className="grid min-w-0 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
         {services.map((s, i) => (
           <motion.div
             key={s.slug}
@@ -27,11 +27,11 @@ export const ServicesPreview = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: i * 0.08 }}
-            className="h-full"
+            className="h-full min-w-0"
           >
             <Link
               to={`/services/${s.slug}`}
-              className="group flex flex-col h-full bg-card rounded-3xl overflow-hidden shadow-soft hover:shadow-elegant transition-all duration-500 hover:-translate-y-1"
+              className="group flex min-w-0 flex-col h-full bg-card rounded-3xl overflow-hidden shadow-soft hover:shadow-elegant transition-all duration-500 hover:-translate-y-1"
             >
               <div className="aspect-[4/3] overflow-hidden relative shrink-0">
                 <img

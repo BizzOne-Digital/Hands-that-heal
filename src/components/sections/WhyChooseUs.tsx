@@ -36,16 +36,16 @@ const features = [
 
 export const WhyChooseUs = () => (
   <section className="py-8 sm:py-12 bg-soft-gradient">
-    <div className="container-luxe">
-      <div className="text-center max-w-2xl mx-auto mb-10">
+    <div className="container-luxe min-w-0">
+      <div className="text-center max-w-2xl mx-auto mb-10 min-w-0">
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Why Choose Us</p>
-        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
           Care that feels right{" "}
           <span className="italic text-gradient">from the moment you walk in</span>
         </h2>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid min-w-0 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((f, i) => (
           <motion.div
             key={f.title}
@@ -53,7 +53,7 @@ export const WhyChooseUs = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08, duration: 0.5 }}
-            className="glass rounded-3xl p-8 hover:shadow-elegant transition-all"
+            className="glass min-w-0 rounded-3xl p-5 sm:p-8 hover:shadow-elegant transition-all"
           >
             <span className="h-12 w-12 rounded-2xl bg-deep-gradient grid place-items-center mb-5">
               <f.icon className="h-6 w-6 text-primary-foreground" />

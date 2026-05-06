@@ -306,8 +306,8 @@ const AestheticSubDetail = () => {
       {/* Main content */}
       <section className="relative py-12 sm:py-16 overflow-hidden">
         <GradientBlobs />
-        <div className="container-luxe relative grid lg:grid-cols-3 gap-16">
-          <div className="lg:col-span-2 space-y-16">
+        <div className="container-luxe relative grid lg:grid-cols-3 gap-10">
+          <div className="lg:col-span-2 space-y-10">
 
             {/* Overview */}
             <div>
@@ -336,13 +336,13 @@ const AestheticSubDetail = () => {
             {/* Gallery mosaic */}
             {aestheticGalleryMap[service.slug] && (
               <div>
-                <div className="grid grid-cols-3 grid-rows-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-2 gap-3">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.97 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="col-span-2 row-span-2 rounded-3xl overflow-hidden shadow-elegant"
+                    className="sm:col-span-2 sm:row-span-2 rounded-3xl overflow-hidden shadow-elegant"
                   >
                     <img
                       src={aestheticGalleryMap[service.slug][0]}

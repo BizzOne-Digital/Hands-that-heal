@@ -14,7 +14,7 @@ export const BookingCTA = () => (
     <div className="container-luxe">
       <div className="text-center max-w-3xl mx-auto mb-10">
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Start Your Transformation Today</p>
-        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
           Pick your service, choose a time, and{" "}
           <span className="italic text-gradient">confirm your booking in seconds.</span>
         </h2>
@@ -28,7 +28,7 @@ export const BookingCTA = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.5 }}
-            className="glass rounded-3xl p-8 text-center"
+            className="glass rounded-3xl p-5 sm:p-8 text-center"
           >
             <span className="inline-flex h-14 w-14 rounded-2xl bg-deep-gradient items-center justify-center mb-5">
               <s.icon className="h-7 w-7 text-primary-foreground" />

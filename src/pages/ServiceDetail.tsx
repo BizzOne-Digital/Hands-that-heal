@@ -122,13 +122,13 @@ const ServiceDetail = () => {
             {/* Gallery mosaic */}
             {service.gallery && (
               <div>
-                <div className="grid grid-cols-3 grid-rows-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-2 gap-3">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.97 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="col-span-2 row-span-2 rounded-3xl overflow-hidden shadow-elegant"
+                    className="sm:col-span-2 sm:row-span-2 rounded-3xl overflow-hidden shadow-elegant"
                   >
                     <img src={service.gallery[0]} alt={service.title} className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
                   </motion.div>
