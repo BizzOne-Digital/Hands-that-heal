@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import laser from "@/assets/service-laser.jpg";
-import teeth from "@/assets/service-teeth.jpg";
+import teeth from "@/assets/organic-teeth-whitening.jpg";
 import contour from "@/assets/service-contouring.jpg";
 import brazilian from "@/assets/service-brazilian.jpg";
 import cryo from "@/assets/service-cryo.jpg";

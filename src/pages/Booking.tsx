@@ -10,7 +10,7 @@ import { GradientBlobs } from "@/components/GradientBlobs";
 import { cn } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
 import laser from "@/assets/service-laser.jpg";
-import teeth from "@/assets/service-teeth.jpg";
+import teeth from "@/assets/organic-teeth-whitening.jpg";
 import cryo from "@/assets/service-cryo.jpg";
 
 const steps = ["Service", "Date & Time", "Your Details", "Confirm"] as const;
