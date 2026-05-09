@@ -39,6 +39,41 @@ export type Service = {
 
 export const services: Service[] = [
   {
+    slug: "localized-cryotherapy",
+    title: "Cryotherapy (Aesthetic & Orthopaedic Care)",
+    tagline: "Supports skin rejuvenation, reduces puffiness, and helps relieve pain and inflammation for better recovery and wellness.",
+    description:
+      "Target stubborn areas with precision using our localized cryotherapy treatment. This non-invasive solution uses controlled cooling to help reduce fat cells, support skin tightening, and enhance body contour — without surgery or downtime.",
+    detailHeading: "Sculpt Your Body with Advanced Cryotherapy",
+    detailBody:
+      "Target stubborn areas with precision using our localized cryotherapy treatment. This non-invasive solution uses controlled cooling to help reduce fat cells, support skin tightening, and enhance body contour — without surgery or downtime.\n\nWe use the advanced Sub Zero cryotherapy system, which delivers precise, controlled low temperatures to targeted areas. This triggers the natural breakdown of fat cells while preserving surrounding tissue and also stimulates circulation, improving skin firmness for a more sculpted appearance.",
+    benefitsIntro:
+      "Each session is tailored to your target areas and body goals, ensuring safe, effective, and gradual results over time.",
+    image: cryo,
+    benefits: [
+      "Helps reduce stubborn fat in targeted areas",
+      "Supports skin tightening and firmness",
+      "Enhances body contour and definition",
+      "Non-invasive with no downtime",
+      "Natural, gradual results",
+    ],
+    forWho: [
+      "Individuals with localized fat that resists diet and exercise",
+      "People looking for non-surgical fat reduction",
+      "Those wanting to improve body contour and skin firmness",
+      "Suitable for both men and women",
+      "Ideal for areas like abdomen, thighs, arms, and love handles",
+    ],
+    experience:
+      "Each session is quick, comfortable, and focused on specific areas. You'll feel a cooling sensation as the treatment works beneath the skin. There is no downtime, allowing you to return to your daily routine immediately. With a consistent treatment plan, you'll notice a more sculpted, smoother, and refined look over time.",
+    faqs: [
+      { q: "Does localized cryotherapy hurt?", a: "Most clients feel a cold, tingling, or mild numbness sensation during treatment. The Sub Zero system is designed to be comfortable, targeting only the treatment area while keeping surrounding tissue safe." },
+      { q: "How many sessions will I need?", a: "Results vary depending on your body type and target areas, but most clients see noticeable improvement after 4–6 sessions. Your plan can be tailored to achieve gradual, natural-looking results." },
+      { q: "Is it safe for all areas of the body?", a: "Yes! Localized cryotherapy with Sub Zero is safe for areas like the abdomen, thighs, arms, and love handles, and it is non-invasive with no downtime." },
+    ],
+    gallery: [cryo1, cryo2, cryo3],
+  },
+  {
     slug: "laser-hair-removal",
     title: "Laser Hair Removal",
     tagline: "Smooth skin. Precision care. Long-term confidence.\n- Pain-free & non-invasive laser hair removal\n- No discomfort, no downtime\n- Quick sessions with long-lasting smooth skin",
@@ -191,41 +226,6 @@ export const services: Service[] = [
       { q: "Will it cause irritation?", a: "Minimal redness may occur, which usually disappears within a few hours. We also provide tips to care for your skin post-treatment." },
     ],
     gallery: [wax1, wax2, wax3],
-  },
-  {
-    slug: "localized-cryotherapy",
-    title: "Cryotherapy (Aesthetic & Orthopaedic Care)",
-    tagline: "Supports skin rejuvenation, reduces puffiness, and helps relieve pain and inflammation for better recovery and wellness.",
-    description:
-      "Target stubborn areas with precision using our localized cryotherapy treatment. This non-invasive solution uses controlled cooling to help reduce fat cells, support skin tightening, and enhance body contour — without surgery or downtime.",
-    detailHeading: "Sculpt Your Body with Advanced Cryotherapy",
-    detailBody:
-      "Target stubborn areas with precision using our localized cryotherapy treatment. This non-invasive solution uses controlled cooling to help reduce fat cells, support skin tightening, and enhance body contour — without surgery or downtime.\n\nWe use the advanced Sub Zero cryotherapy system, which delivers precise, controlled low temperatures to targeted areas. This triggers the natural breakdown of fat cells while preserving surrounding tissue and also stimulates circulation, improving skin firmness for a more sculpted appearance.",
-    benefitsIntro:
-      "Each session is tailored to your target areas and body goals, ensuring safe, effective, and gradual results over time.",
-    image: cryo,
-    benefits: [
-      "Helps reduce stubborn fat in targeted areas",
-      "Supports skin tightening and firmness",
-      "Enhances body contour and definition",
-      "Non-invasive with no downtime",
-      "Natural, gradual results",
-    ],
-    forWho: [
-      "Individuals with localized fat that resists diet and exercise",
-      "People looking for non-surgical fat reduction",
-      "Those wanting to improve body contour and skin firmness",
-      "Suitable for both men and women",
-      "Ideal for areas like abdomen, thighs, arms, and love handles",
-    ],
-    experience:
-      "Each session is quick, comfortable, and focused on specific areas. You'll feel a cooling sensation as the treatment works beneath the skin. There is no downtime, allowing you to return to your daily routine immediately. With a consistent treatment plan, you'll notice a more sculpted, smoother, and refined look over time.",
-    faqs: [
-      { q: "Does localized cryotherapy hurt?", a: "Most clients feel a cold, tingling, or mild numbness sensation during treatment. The Sub Zero system is designed to be comfortable, targeting only the treatment area while keeping surrounding tissue safe." },
-      { q: "How many sessions will I need?", a: "Results vary depending on your body type and target areas, but most clients see noticeable improvement after 4–6 sessions. Your plan can be tailored to achieve gradual, natural-looking results." },
-      { q: "Is it safe for all areas of the body?", a: "Yes! Localized cryotherapy with Sub Zero is safe for areas like the abdomen, thighs, arms, and love handles, and it is non-invasive with no downtime." },
-    ],
-    gallery: [cryo1, cryo2, cryo3],
   },
 ];
 

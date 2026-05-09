@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const services = [
+  { to: "/services/localized-cryotherapy",   label: "Cryotherapy" },
   { to: "/services/laser-hair-removal",     label: "Laser Hair Removal" },
   { to: "/services/organic-teeth-whitening", label: "Organic Teeth Whitening" },
   { to: "/services/body-contouring",         label: "Body Contouring" },
   { to: "/services/brazilian-laser",         label: "Brazilian Laser" },
-  { to: "/services/localized-cryotherapy",   label: "Cryotherapy" },
 ];
 
 const links = [
