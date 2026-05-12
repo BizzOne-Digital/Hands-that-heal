@@ -71,7 +71,7 @@ const Contact = () => {
                 </li>
                 <li className="flex gap-3">
                   <MapPin className="h-5 w-5 text-primary-glow shrink-0 mt-0.5" />
-                  <span>70 King St E, Hamilton ON L8G 1K2, Canada</span>
+                  <span>70 King St E, Stoney Creek, ON L8G 1K2, Canada</span>
                 </li>
               </ul>
             </div>
@@ -96,7 +96,7 @@ const Contact = () => {
               <div className="absolute inset-0 grid place-items-center">
                 <div className="text-center">
                   <MapPin className="h-10 w-10 text-primary mx-auto" />
-                  <p className="font-display text-xl mt-3 text-foreground">Hamilton, ON</p>
+                  <p className="font-display text-xl mt-3 text-foreground">Stoney Creek, ON</p>
                   <p className="text-xs text-muted-foreground mt-1">70 King St E, L8G 1K2</p>
                 </div>
               </div>
