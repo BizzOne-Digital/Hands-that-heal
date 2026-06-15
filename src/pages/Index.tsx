@@ -3,7 +3,6 @@ import { AboutSection } from "@/components/sections/AboutSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { ServicesPreview } from "@/components/sections/ServicesPreview";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { BeforeAfter } from "@/components/sections/BeforeAfter";
 import { NextStep } from "@/components/sections/NextStep";
 import { Stats } from "@/components/sections/Stats";
@@ -34,9 +33,6 @@ const Index = () => {
 
       {/* 6. Before & After Results */}
       <BeforeAfter />
-
-      {/* 7. Testimonials */}
-      <Testimonials />
 
       {/* 7. Next Step CTA */}
       <NextStep />
