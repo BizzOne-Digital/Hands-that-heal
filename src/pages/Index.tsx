@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { CTASection } from "@/components/sections/CTASection";
+import { CryotherapySection } from "@/components/sections/CryotherapySection";
 import { ServicesPreview } from "@/components/sections/ServicesPreview";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { BeforeAfter } from "@/components/sections/BeforeAfter";
@@ -19,13 +20,16 @@ const Index = () => {
       {/* 1. Hero */}
       <Hero />
 
-      {/* 2. About Us */}
+      {/* 2. Cryotherapy */}
+      <CryotherapySection />
+
+      {/* 3. About Us */}
       <AboutSection />
 
-      {/* 3. Special Offer */}
+      {/* 4. Special Offer */}
       <CTASection />
 
-      {/* 4. Services */}
+      {/* 5. Services */}
       <ServicesPreview />
 
       {/* 5. Why Choose Us */}
