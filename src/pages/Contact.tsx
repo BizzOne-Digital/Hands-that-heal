@@ -34,7 +34,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="pb-16">
+      <section className="pt-10 sm:pt-14 pb-16">
         <div className="container-luxe grid lg:grid-cols-5 gap-8">
           <form onSubmit={submit} className="lg:col-span-3 bg-card rounded-3xl shadow-soft p-6 sm:p-8 md:p-12">
             <h2 className="font-display text-3xl mb-8">Fill the form below</h2>

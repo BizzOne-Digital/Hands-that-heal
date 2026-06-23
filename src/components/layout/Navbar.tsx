@@ -1,28 +1,41 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+const cryoSubServices = [
+  { to: "/services/cryo-aesthetic",   label: "Aesthetic" },
+  { to: "/services/cryo-ortho",       label: "Orthopaedic" },
+  { to: "/services/cryo-sports",      label: "Sports" },
+  { to: "/services/cryo-postsurgery", label: "Post Surgery" },
+];
+
 const services = [
-  { to: "/services/localized-cryotherapy",   label: "Cryotherapy" },
-  { to: "/services/laser-hair-removal",     label: "Laser Hair Removal" },
+  {
+    to: "/services/localized-cryotherapy",
+    label: "Cryotherapy",
+    sub: cryoSubServices,
+  },
+  { to: "/services/laser-hair-removal",      label: "Laser Hair Removal" },
   { to: "/services/organic-teeth-whitening", label: "Organic Teeth Whitening" },
   { to: "/services/body-contouring",         label: "Body Contouring" },
   { to: "/services/brazilian-laser",         label: "Brazilian Laser" },
 ];
 
 const links = [
-  { to: "/about", label: "About" },
-  { to: "/faqs", label: "FAQs" },
+  { to: "/about",   label: "About" },
+  { to: "/faqs",    label: "FAQs" },
   { to: "/contact", label: "Contact" },
 ];
 
 export const Navbar = () => {
-  const [scrolled, setScrolled]       = useState(false);
-  const [open, setOpen]               = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false); // mobile accordion
-  const [dropdownOpen, setDropdownOpen] = useState(false); // desktop hover
+  const [scrolled, setScrolled]         = useState(false);
+  const [open, setOpen]                 = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false); // mobile services accordion
+  const [cryoOpen, setCryoOpen]         = useState(false); // mobile cryo sub-accordion
+  const [dropdownOpen, setDropdownOpen] = useState(false); // desktop services dropdown
+  const [cryoHover, setCryoHover]       = useState(false); // desktop cryo sub-panel
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { pathname } = useLocation();
 
@@ -34,9 +47,13 @@ export const Navbar = () => {
   }, []);
 
   // Close everything on route change
-  useEffect(() => { setOpen(false); setServicesOpen(false); }, [pathname]);
+  useEffect(() => {
+    setOpen(false);
+    setServicesOpen(false);
+    setCryoOpen(false);
+  }, [pathname]);
 
-  const transparent = !scrolled && pathname === "/";
+  const transparent      = !scrolled && pathname === "/";
   const isServicesActive = pathname.startsWith("/services");
 
   return (
@@ -58,7 +75,7 @@ export const Navbar = () => {
           />
         </Link>
 
-        {/* Desktop nav */}
+        {/* ── Desktop nav ── */}
         <nav className="hidden md:flex items-center gap-1">
           {/* Home */}
           <NavLink
@@ -82,7 +99,7 @@ export const Navbar = () => {
             ref={dropdownRef}
             className="relative"
             onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
+            onMouseLeave={() => { setDropdownOpen(false); setCryoHover(false); }}
           >
             <NavLink
               to="/services"
@@ -105,22 +122,68 @@ export const Navbar = () => {
 
             {/* Dropdown panel */}
             {dropdownOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-56">
-                <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-elegant border border-white/60 overflow-hidden py-1.5">
-                  {services.map((s) => (
-                    <Link
-                      key={s.to}
-                      to={s.to}
-                      className={cn(
-                        "block px-5 py-2.5 text-sm font-medium transition-colors",
-                        pathname === s.to
-                          ? "text-primary bg-secondary"
-                          : "text-foreground/80 hover:text-primary hover:bg-secondary"
-                      )}
-                    >
-                      {s.label}
-                    </Link>
-                  ))}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-60">
+                <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-elegant border border-white/60 overflow-visible py-1.5">
+                  {services.map((s) =>
+                    s.sub ? (
+                      /* ── Cryotherapy row with nested sub-panel ── */
+                      <div
+                        key={s.to}
+                        className="relative"
+                        onMouseEnter={() => setCryoHover(true)}
+                        onMouseLeave={() => setCryoHover(false)}
+                      >
+                        <div
+                          className={cn(
+                            "flex items-center justify-between px-5 py-2.5 text-sm font-medium transition-colors cursor-pointer",
+                            pathname.startsWith("/services/cryo") || pathname === s.to
+                              ? "text-primary bg-secondary"
+                              : "text-foreground/80 hover:text-primary hover:bg-secondary"
+                          )}
+                        >
+                          <Link to={s.to} className="flex-1">
+                            {s.label}
+                          </Link>
+                          <ChevronRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                        </div>
+
+                        {/* Sub-panel — flies out to the right */}
+                        {cryoHover && (
+                          <div className="absolute top-0 left-full pl-2 w-48">
+                            <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-elegant border border-white/60 overflow-hidden py-1.5">
+                              {s.sub.map((sub) => (
+                                <Link
+                                  key={sub.to}
+                                  to={sub.to}
+                                  className={cn(
+                                    "block px-5 py-2.5 text-sm font-medium transition-colors",
+                                    pathname === sub.to
+                                      ? "text-primary bg-secondary"
+                                      : "text-foreground/80 hover:text-primary hover:bg-secondary"
+                                  )}
+                                >
+                                  {sub.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <Link
+                        key={s.to}
+                        to={s.to}
+                        className={cn(
+                          "block px-5 py-2.5 text-sm font-medium transition-colors",
+                          pathname === s.to
+                            ? "text-primary bg-secondary"
+                            : "text-foreground/80 hover:text-primary hover:bg-secondary"
+                        )}
+                      >
+                        {s.label}
+                      </Link>
+                    )
+                  )}
                   <div className="mx-4 my-1.5 border-t border-border/50" />
                   <Link
                     to="/services"
@@ -174,7 +237,7 @@ export const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* ── Mobile menu ── */}
       {open && (
         <div className="md:hidden glass mx-4 mb-4 rounded-2xl p-4 animate-fade-in">
           <div className="flex flex-col gap-1">
@@ -208,22 +271,71 @@ export const Navbar = () => {
                   )}
                 />
               </button>
+
               {servicesOpen && (
                 <div className="mt-1 ml-3 flex flex-col gap-0.5 border-l-2 border-primary/20 pl-3">
-                  {services.map((s) => (
-                    <Link
-                      key={s.to}
-                      to={s.to}
-                      className={cn(
-                        "px-3 py-2.5 text-sm rounded-lg transition-colors",
-                        pathname === s.to
-                          ? "text-primary font-medium"
-                          : "text-foreground/70 hover:text-primary hover:bg-secondary"
-                      )}
-                    >
-                      {s.label}
-                    </Link>
-                  ))}
+                  {services.map((s) =>
+                    s.sub ? (
+                      /* ── Cryotherapy with nested accordion ── */
+                      <div key={s.to}>
+                        <button
+                          onClick={() => setCryoOpen((v) => !v)}
+                          className={cn(
+                            "w-full flex items-center justify-between px-3 py-2.5 text-sm rounded-lg transition-colors",
+                            pathname.startsWith("/services/cryo") || pathname === s.to
+                              ? "text-primary font-medium"
+                              : "text-foreground/70 hover:text-primary hover:bg-secondary"
+                          )}
+                        >
+                          <Link
+                            to={s.to}
+                            onClick={(e) => e.stopPropagation()}
+                            className="flex-1 text-left"
+                          >
+                            {s.label}
+                          </Link>
+                          <ChevronDown
+                            className={cn(
+                              "h-3.5 w-3.5 transition-transform duration-200 text-muted-foreground",
+                              cryoOpen && "rotate-180"
+                            )}
+                          />
+                        </button>
+
+                        {cryoOpen && (
+                          <div className="ml-3 mt-0.5 flex flex-col gap-0.5 border-l-2 border-primary/10 pl-3">
+                            {s.sub.map((sub) => (
+                              <Link
+                                key={sub.to}
+                                to={sub.to}
+                                className={cn(
+                                  "px-3 py-2 text-sm rounded-lg transition-colors",
+                                  pathname === sub.to
+                                    ? "text-primary font-medium"
+                                    : "text-foreground/60 hover:text-primary hover:bg-secondary"
+                                )}
+                              >
+                                {sub.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <Link
+                        key={s.to}
+                        to={s.to}
+                        className={cn(
+                          "px-3 py-2.5 text-sm rounded-lg transition-colors",
+                          pathname === s.to
+                            ? "text-primary font-medium"
+                            : "text-foreground/70 hover:text-primary hover:bg-secondary"
+                        )}
+                      >
+                        {s.label}
+                      </Link>
+                    )
+                  )}
                   <Link
                     to="/services"
                     className="px-3 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-secondary rounded-lg transition-colors"
