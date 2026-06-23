@@ -4,7 +4,6 @@ import { CTASection } from "@/components/sections/CTASection";
 import { CryotherapySection } from "@/components/sections/CryotherapySection";
 import { ServicesPreview } from "@/components/sections/ServicesPreview";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
-import { BeforeAfter } from "@/components/sections/BeforeAfter";
 import { NextStep } from "@/components/sections/NextStep";
 import { Stats } from "@/components/sections/Stats";
 import { FAQPreview } from "@/components/sections/FAQPreview";
@@ -34,9 +33,6 @@ const Index = () => {
 
       {/* 5. Why Choose Us */}
       <WhyChooseUs />
-
-      {/* 6. Before & After Results */}
-      <BeforeAfter />
 
       {/* 7. Next Step CTA */}
       <NextStep />
