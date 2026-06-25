@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/Hero";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { CryotherapySection } from "@/components/sections/CryotherapySection";
+import { AestheticCryoSection } from "@/components/sections/AestheticCryoSection";
 import { ServicesPreview } from "@/components/sections/ServicesPreview";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { NextStep } from "@/components/sections/NextStep";
@@ -21,6 +22,9 @@ const Index = () => {
 
       {/* 2. Cryotherapy */}
       <CryotherapySection />
+
+      {/* 3. Aesthetic Cryotherapy sub-types */}
+      <AestheticCryoSection />
 
       {/* 3. About Us */}
       <AboutSection />
