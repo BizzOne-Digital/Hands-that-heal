@@ -63,11 +63,11 @@ const Contact = () => {
               <ul className="space-y-5 text-sm">
                 <li className="flex gap-3">
                   <Phone className="h-5 w-5 text-primary-glow shrink-0 mt-0.5" />
-                  <span>+1 905 662 0005</span>
+                  <a href="tel:+19056620005" className="hover:text-white transition-colors">+1 905 662 0005</a>
                 </li>
                 <li className="flex gap-3">
                   <Mail className="h-5 w-5 text-primary-glow shrink-0 mt-0.5" />
-                  <span>handthatheal@hotmail.ca</span>
+                  <a href="mailto:handthatheal@hotmail.ca" className="hover:text-white transition-colors">handthatheal@hotmail.ca</a>
                 </li>
                 <li className="flex gap-3">
                   <MapPin className="h-5 w-5 text-primary-glow shrink-0 mt-0.5" />
