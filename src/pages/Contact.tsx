@@ -11,6 +11,10 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Fire Google Ads conversion
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion', { send_to: 'AW-18207080252/REQmCKL7-sgcELz-5-lD' });
+    }
     toast({ title: "Message sent", description: "We'll reply within one business day." });
     setForm({ name: "", email: "", message: "" });
   };
